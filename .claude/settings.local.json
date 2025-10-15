@@ -1,0 +1,53 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm init:*)",
+      "Bash(npm install:*)",
+      "Bash(npm search @lottielab)",
+      "Bash(npm run dev:*)",
+      "Bash(curl:*)",
+      "WebFetch(domain:reactbits.dev)",
+      "Bash(npm create:*)",
+      "Bash(npx tailwindcss init:*)",
+      "mcp__playwright__browser_navigate",
+      "mcp__playwright__browser_take_screenshot",
+      "mcp__playwright__browser_evaluate",
+      "mcp__serena__read_memory",
+      "mcp__serena__delete_memory",
+      "mcp__playwright__browser_snapshot",
+      "Bash(git add:*)",
+      "mcp__playwright__browser_click",
+      "Bash(git commit:*)",
+      "Bash(npx eslint:*)",
+      "mcp__serena__get_symbols_overview",
+      "mcp__playwright__browser_wait_for",
+      "mcp__playwright__browser_press_key",
+      "mcp__playwright__browser_close",
+      "Bash(open http://localhost:5555)",
+      "mcp__browser-tools__takeScreenshot",
+      "mcp__playwright__browser_resize",
+      "mcp__serena__find_symbol",
+      "Bash(find:*)",
+      "Bash(tree:*)",
+      "mcp__serena__replace_regex",
+      "Bash(git remote add:*)",
+      "Bash(git push:*)",
+      "Bash(git rm:*)",
+      "Bash(git filter-branch:*)",
+      "Bash(git checkout:*)"
+    ],
+    "deny": [],
+    "ask": []
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "context7",
+    "browser-tools",
+    "claude-code-mcp",
+    "promptx",
+    "playwright",
+    "sequential-thinking",
+    "feishu-api",
+    "shadcn-ui-server"
+  ]
+}

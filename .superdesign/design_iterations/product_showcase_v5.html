@@ -1,0 +1,700 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多多畅职 v5 - 找工作，谁发工资，谁说的算</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary: #8B5CF6;
+            --secondary: #3B82F6;
+            --accent: #EC4899;
+            --dark: #0F0F0F;
+            --dark-light: #1A1A1A;
+            --text: #FFFFFF;
+            --text-muted: #9CA3AF;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            background: var(--dark);
+            color: var(--text);
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* 全屏滚动容器 */
+        .fullpage-container {
+            height: 100vh;
+            overflow-y: auto;
+            scroll-snap-type: y mandatory;
+            position: relative;
+        }
+
+        .section {
+            min-height: 100vh;
+            scroll-snap-align: start;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 60px 20px;
+        }
+
+        /* 导航指示器 */
+        .nav-dots {
+            position: fixed;
+            right: 30px;
+            top: 50%;
+            transform: translateY(-50%);
+            z-index: 1000;
+        }
+
+        .nav-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.3);
+            margin: 15px 0;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-dot.active {
+            background: var(--primary);
+            transform: scale(1.5);
+        }
+
+        .nav-dot:hover {
+            background: rgba(255, 255, 255, 0.6);
+            transform: scale(1.3);
+        }
+
+        .nav-dot .tooltip {
+            position: absolute;
+            right: 25px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.9);
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            white-space: nowrap;
+            font-size: 12px;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+
+        .nav-dot:hover .tooltip {
+            opacity: 1;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background: radial-gradient(circle at 20% 50%, rgba(139, 92, 246, 0.3) 0%, transparent 50%),
+                        radial-gradient(circle at 80% 80%, rgba(59, 130, 246, 0.3) 0%, transparent 50%),
+                        var(--dark);
+        }
+
+        .hero-content {
+            text-align: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero-title {
+            font-size: clamp(4rem, 10vw, 8rem);
+            font-weight: 900;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 50%, var(--accent) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 20px;
+            letter-spacing: -2px;
+            animation: gradient-shift 5s ease infinite;
+            background-size: 200% 200%;
+        }
+
+        @keyframes gradient-shift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+            color: var(--text);
+            margin-bottom: 30px;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .hero-tags {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .tag {
+            padding: 12px 24px;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 50px;
+            backdrop-filter: blur(10px);
+            transition: all 0.3s ease;
+        }
+
+        .tag:hover {
+            background: rgba(255, 255, 255, 0.1);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(139, 92, 246, 0.3);
+        }
+
+        /* Content Sections */
+        .content-section {
+            background: linear-gradient(180deg, var(--dark) 0%, var(--dark-light) 100%);
+        }
+
+        .content-wrapper {
+            max-width: 1400px;
+            margin: 0 auto;
+            width: 100%;
+        }
+
+        .section-title {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            margin-bottom: 50px;
+            text-align: center;
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            border-radius: 2px;
+        }
+
+        /* 卡片网格 - 可点击展开版本 */
+        .cards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            padding: 20px;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            padding: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .card.expandable {
+            cursor: pointer;
+        }
+
+        .card.expandable::after {
+            content: '点击查看详情 →';
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            font-size: 0.9rem;
+            color: var(--primary);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card.expandable:hover::after {
+            opacity: 1;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.05);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card-title {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            font-weight: 600;
+        }
+
+        .card-number {
+            width: 45px;
+            height: 45px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .card-content {
+            color: var(--text-muted);
+            line-height: 2;
+            font-size: 1.1rem;
+        }
+
+        .card-content p {
+            margin-bottom: 12px;
+        }
+
+        .card-content strong {
+            color: var(--text);
+            font-weight: 600;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* 全屏展开模态框 */
+        .fullscreen-modal {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.98);
+            z-index: 3000;
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .fullscreen-modal.active {
+            display: flex;
+            opacity: 1;
+        }
+
+        .fullscreen-content {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 60px;
+            gap: 60px;
+            max-width: 1600px;
+            margin: 0 auto;
+            opacity: 0;
+            transform: scale(0.9);
+            transition: all 0.5s ease 0.2s;
+        }
+
+        .fullscreen-modal.active .fullscreen-content {
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .fullscreen-left {
+            flex: 0 0 40%;
+            padding-right: 40px;
+        }
+
+        .fullscreen-title {
+            font-size: 3.5rem;
+            font-weight: 800;
+            margin-bottom: 30px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .fullscreen-description {
+            font-size: 1.5rem;
+            line-height: 2;
+            color: var(--text);
+            margin-bottom: 20px;
+        }
+
+        .fullscreen-subdesc {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-muted);
+        }
+
+        .fullscreen-right {
+            flex: 1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .fullscreen-images {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            width: 100%;
+        }
+
+        .fullscreen-image {
+            border-radius: 15px;
+            overflow: hidden;
+            background: rgba(255, 255, 255, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .fullscreen-image:hover {
+            transform: scale(1.05);
+        }
+
+        .fullscreen-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .fullscreen-close {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            font-size: 24px;
+            color: white;
+            transition: all 0.3s;
+        }
+
+        .fullscreen-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+
+        /* 高亮文本样式 */
+        .highlight {
+            color: var(--text);
+            font-weight: 600;
+            position: relative;
+            padding: 0 4px;
+        }
+
+        .highlight-box {
+            display: inline-block;
+            padding: 4px 12px;
+            background: rgba(139, 92, 246, 0.1);
+            border-radius: 6px;
+            border: 1px solid rgba(139, 92, 246, 0.3);
+            color: var(--text);
+            font-weight: 600;
+        }
+
+        /* 版本标记 */
+        .version-tag {
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            background: rgba(139, 92, 246, 0.2);
+            border: 1px solid var(--primary);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            z-index: 1000;
+            backdrop-filter: blur(10px);
+        }
+
+        /* 响应式 */
+        @media (max-width: 768px) {
+            .fullscreen-content {
+                flex-direction: column;
+                padding: 40px 20px;
+            }
+
+            .fullscreen-left {
+                flex: none;
+                padding-right: 0;
+            }
+
+            .fullscreen-title {
+                font-size: 2.5rem;
+            }
+
+            .fullscreen-description {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- 版本标记 -->
+    <div class="version-tag">Version 5.0 - 卡片展开版</div>
+
+    <!-- 全屏展开模态框 -->
+    <div class="fullscreen-modal" id="fullscreenModal">
+        <div class="fullscreen-close" onclick="closeFullscreen()">×</div>
+        <div class="fullscreen-content">
+            <div class="fullscreen-left" id="modalLeft">
+                <!-- 动态内容 -->
+            </div>
+            <div class="fullscreen-right" id="modalRight">
+                <!-- 动态图片 -->
+            </div>
+        </div>
+    </div>
+
+    <!-- 导航点 -->
+    <div class="nav-dots">
+        <div class="nav-dot active" data-section="0">
+            <span class="tooltip">首页</span>
+        </div>
+        <div class="nav-dot" data-section="1">
+            <span class="tooltip">迷茫</span>
+        </div>
+        <div class="nav-dot" data-section="2">
+            <span class="tooltip">产品介绍</span>
+        </div>
+        <div class="nav-dot" data-section="3">
+            <span class="tooltip">大一推广</span>
+        </div>
+        <div class="nav-dot" data-section="4">
+            <span class="tooltip">大二推广</span>
+        </div>
+        <div class="nav-dot" data-section="5">
+            <span class="tooltip">报名</span>
+        </div>
+        <div class="nav-dot" data-section="6">
+            <span class="tooltip">城市站点</span>
+        </div>
+        <div class="nav-dot" data-section="7">
+            <span class="tooltip">加入我们</span>
+        </div>
+    </div>
+
+    <!-- 全屏滚动容器 -->
+    <div class="fullpage-container">
+        <!-- Hero Section -->
+        <section class="section hero-section">
+            <div class="hero-content">
+                <h1 class="hero-title">多多畅职</h1>
+                <p class="hero-subtitle">找工作，谁发工资，谁说的算</p>
+                <div class="hero-tags">
+                    <div class="tag">📺 央视报道</div>
+                    <div class="tag">🤝 2700+企业合作</div>
+                    <div class="tag">⚡ 就业快人一步</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 迷茫 Section -->
+        <section class="section content-section">
+            <div class="content-wrapper">
+                <h2 class="section-title">迷茫</h2>
+                <div class="cards-grid">
+                    <div class="card expandable" onclick="openFullscreen('confusion1')">
+                        <h3 class="card-title">
+                            <span class="card-number">1</span>
+                            从迷茫开始
+                        </h3>
+                        <div class="card-content">
+                            <p>你知道自己的<strong>专业</strong>可以找到什么<strong>工作</strong>吗？</p>
+                            <p>小程序<span class="highlight-box">"专业测评"</span>帮你解答</p>
+                        </div>
+                    </div>
+
+                    <div class="card expandable" onclick="openFullscreen('confusion2')">
+                        <h3 class="card-title">
+                            <span class="card-number">2</span>
+                            就业的恐惧
+                        </h3>
+                        <div class="card-content">
+                            <p><strong>万一找不到工作怎么办？</strong></p>
+                            <p>普通专科生的就业现状：<span class="highlight-box">吉祥三宝/铁人三项</span></p>
+                        </div>
+                    </div>
+
+                    <div class="card expandable" onclick="openFullscreen('confusion3')">
+                        <h3 class="card-title">
+                            <span class="card-number">3</span>
+                            学校学习
+                        </h3>
+                        <div class="card-content">
+                            <p>学校学习的知识<strong>偏理论</strong>，<span class="highlight">教材落后</span></p>
+                            <p>与实际工作需求<span class="highlight-box">脱节严重</span></p>
+                        </div>
+                    </div>
+
+                    <div class="card expandable" onclick="openFullscreen('confusion4')">
+                        <h3 class="card-title">
+                            <span class="card-number">4</span>
+                            校招情况
+                        </h3>
+                        <div class="card-content">
+                            <p>校招来的<strong>企业较差</strong></p>
+                            <p>基本以<span class="highlight">销售或客服</span>为主</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 其他sections保持不变，这里先省略... -->
+    </div>
+
+    <script>
+        // 全屏展开数据
+        const fullscreenData = {
+            confusion1: {
+                title: '从迷茫开始',
+                description: '你知道自己的专业可以找到什么工作吗？',
+                subdesc: '大多数专科生在选择专业时，并不清楚这个专业未来的就业方向。毕业后才发现，学了三年的知识，却不知道能做什么工作。我们的小程序"专业测评"能够帮你精准分析专业对口的岗位，让你不再迷茫。',
+                images: [
+                    '../../doc/产品手册/images/p_1.png',
+                    '../../doc/产品手册/images/p_2.png',
+                    '../../doc/产品手册/images/p_3.png'
+                ]
+            },
+            confusion2: {
+                title: '就业的恐惧',
+                description: '万一找不到工作怎么办？',
+                subdesc: '普通专科生的就业现状往往是"吉祥三宝"或"铁人三项"——主播、销售、服务员。这不是你想要的未来，但似乎又别无选择。我们要打破这个魔咒，让你有更多更好的选择。',
+                images: []
+            },
+            confusion3: {
+                title: '学校学习的困境',
+                description: '理论与实践的鸿沟',
+                subdesc: '学校的课程大多偏重理论，教材内容滞后于行业发展3-5年。当你走出校门，才发现学校教的和企业要的完全是两回事。这种脱节让你在求职时处处碰壁。',
+                images: []
+            },
+            confusion4: {
+                title: '校招的真相',
+                description: '为什么校招总是让人失望？',
+                subdesc: '学校的校招会上，来的企业质量参差不齐，大部分岗位都是销售或客服。真正的好企业、好岗位，很少会出现在专科院校的校招会上。这是现实，但不是终点。',
+                images: []
+            }
+        };
+
+        // 打开全屏
+        function openFullscreen(id) {
+            const modal = document.getElementById('fullscreenModal');
+            const leftContent = document.getElementById('modalLeft');
+            const rightContent = document.getElementById('modalRight');
+
+            const data = fullscreenData[id];
+
+            // 设置左侧内容
+            leftContent.innerHTML = `
+                <h2 class="fullscreen-title">${data.title}</h2>
+                <p class="fullscreen-description">${data.description}</p>
+                <p class="fullscreen-subdesc">${data.subdesc}</p>
+            `;
+
+            // 设置右侧图片
+            if (data.images && data.images.length > 0) {
+                rightContent.innerHTML = `
+                    <div class="fullscreen-images">
+                        ${data.images.map(img => `
+                            <div class="fullscreen-image">
+                                <img src="${img}" alt="${data.title}">
+                            </div>
+                        `).join('')}
+                    </div>
+                `;
+            } else {
+                rightContent.innerHTML = `
+                    <div style="display: flex; align-items: center; justify-content: center; height: 100%; color: var(--text-muted);">
+                        <p style="font-size: 1.5rem; text-align: center;">相关配图即将上线...</p>
+                    </div>
+                `;
+            }
+
+            // 显示模态框
+            modal.classList.add('active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        // 关闭全屏
+        function closeFullscreen() {
+            const modal = document.getElementById('fullscreenModal');
+            modal.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+
+        // ESC键关闭
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeFullscreen();
+            }
+        });
+
+        // 导航点击事件
+        document.querySelectorAll('.nav-dot').forEach(dot => {
+            dot.addEventListener('click', function() {
+                const sectionIndex = parseInt(this.dataset.section);
+                const sections = document.querySelectorAll('.section');
+                sections[sectionIndex].scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // 滚动监听更新导航状态
+        const sections = document.querySelectorAll('.section');
+        const navDots = document.querySelectorAll('.nav-dot');
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    const index = Array.from(sections).indexOf(entry.target);
+                    navDots.forEach(dot => dot.classList.remove('active'));
+                    navDots[index].classList.add('active');
+                }
+            });
+        }, { threshold: 0.5 });
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>

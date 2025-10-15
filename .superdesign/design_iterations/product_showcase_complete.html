@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多多畅职 - 完整产品展示</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 自定义滚动条 */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #0a0a0a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #9333ea, #3b82f6);
+            border-radius: 5px;
+        }
+
+        /* 全屏页面容器 */
+        .page-section {
+            min-height: 100vh;
+            position: relative;
+            scroll-snap-align: start;
+        }
+
+        html {
+            scroll-snap-type: y mandatory;
+            scroll-behavior: smooth;
+        }
+
+        /* 渐变文字 */
+        .gradient-text {
+            background: linear-gradient(135deg, #9333ea 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* 玻璃态效果 */
+        .glass {
+            background: rgba(255, 255, 255, 0.03);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+        }
+
+        /* 网格背景 */
+        .grid-bg {
+            background-image:
+                linear-gradient(rgba(147, 51, 234, 0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(147, 51, 234, 0.02) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+
+        /* 手机图片容器 - 竖屏图片 */
+        .phone-img {
+            max-width: 300px;
+            width: 100%;
+            height: auto;
+        }
+
+        /* 横屏图片容器 - 宽屏图片 */
+        .wide-img {
+            max-width: 100%;
+            width: 100%;
+            height: auto;
+        }
+
+        /* 就业榜图片 - 正方形比例 */
+        .square-img {
+            max-width: 400px;
+            width: 100%;
+            height: auto;
+        }
+
+        /* 动画 */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .float-animation {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* 高亮文字 */
+        .highlight {
+            color: #9333ea;
+            font-weight: bold;
+        }
+
+        .highlight-blue {
+            color: #3b82f6;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body class="bg-black text-white overflow-x-hidden">
+
+    <!-- 固定导航指示器 -->
+    <nav class="fixed right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-3">
+        <a href="#hero" class="nav-dot w-3 h-3 rounded-full bg-purple-500 hover:scale-125 transition-all" title="首页"></a>
+        <a href="#confusion" class="nav-dot w-3 h-3 rounded-full bg-gray-600 hover:scale-125 transition-all" title="迷茫"></a>
+        <a href="#product" class="nav-dot w-3 h-3 rounded-full bg-gray-600 hover:scale-125 transition-all" title="产品介绍"></a>
+        <a href="#freshman" class="nav-dot w-3 h-3 rounded-full bg-gray-600 hover:scale-125 transition-all" title="大一推广"></a>
+        <a href="#sophomore" class="nav-dot w-3 h-3 rounded-full bg-gray-600 hover:scale-125 transition-all" title="大二推广"></a>
+        <a href="#registration" class="nav-dot w-3 h-3 rounded-full bg-gray-600 hover:scale-125 transition-all" title="报名"></a>
+        <a href="#city" class="nav-dot w-3 h-3 rounded-full bg-gray-600 hover:scale-125 transition-all" title="城市站点"></a>
+        <a href="#cta" class="nav-dot w-3 h-3 rounded-full bg-gray-600 hover:scale-125 transition-all" title="加入我们"></a>
+    </nav>
+
+    <!-- Page 1: Hero -->
+    <section id="hero" class="page-section grid-bg flex items-center justify-center">
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-blue-900/20"></div>
+        <div class="relative z-10 text-center max-w-6xl mx-auto px-6">
+            <h1 class="text-7xl md:text-8xl lg:text-9xl font-black mb-6 float-animation">
+                <span class="gradient-text">多多畅职</span>
+            </h1>
+            <div class="inline-block glass px-6 py-2 rounded-full mb-8">
+                <span class="text-sm tracking-[0.3em] text-gray-400">产品介绍</span>
+            </div>
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-12">
+                <span class="text-white">找工作，</span>
+                <span class="text-purple-400">谁发工资</span>
+                <span class="text-white">，</span>
+                <span class="text-blue-400">谁说的算</span>
+            </h2>
+            <div class="flex flex-wrap gap-4 justify-center">
+                <span class="glass px-5 py-2.5 rounded-full text-sm hover:scale-105 transition-transform">📺 央视报道</span>
+                <span class="glass px-5 py-2.5 rounded-full text-sm hover:scale-105 transition-transform">🤝 2700+企业合作</span>
+                <span class="glass px-5 py-2.5 rounded-full text-sm hover:scale-105 transition-transform">⚡ 快人一步</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 2: 迷茫 -->
+    <section id="confusion" class="page-section bg-gradient-to-b from-black to-gray-950">
+        <div class="max-w-7xl mx-auto px-6 py-20">
+            <h2 class="text-5xl md:text-6xl font-black text-center mb-16 gradient-text">迷茫</h2>
+
+            <div class="space-y-12">
+                <!-- 从迷茫开始 -->
+                <div class="glass p-8 rounded-2xl">
+                    <h3 class="text-3xl font-bold mb-6 text-purple-300">从迷茫开始</h3>
+                    <p class="text-xl text-gray-300 mb-4">你知道自己的专业可以找到什么工作吗？</p>
+                    <p class="text-gray-400 mb-6">小程序"专业测评"</p>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <img src="../../product-showcase/src/assets/images/p_1.png" class="phone-img mx-auto rounded-lg shadow-2xl" alt="专业测评1">
+                        <img src="../../product-showcase/src/assets/images/p_2.png" class="phone-img mx-auto rounded-lg shadow-2xl" alt="专业测评2">
+                        <img src="../../product-showcase/src/assets/images/p_3.png" class="phone-img mx-auto rounded-lg shadow-2xl" alt="专业测评3">
+                    </div>
+                </div>
+
+                <!-- 其他迷茫板块 -->
+                <div class="grid md:grid-cols-2 gap-8">
+                    <div class="glass p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold mb-4 text-blue-300">就业的恐惧</h3>
+                        <p class="text-gray-300 mb-3">万一找不到工作怎么办？</p>
+                        <p class="text-gray-400">普通专科生的就业现状：<br/>吉祥三宝/铁人三项/主播、销售路、服务员</p>
+                    </div>
+                    <div class="glass p-8 rounded-2xl">
+                        <h3 class="text-2xl font-bold mb-4 text-purple-300">学校学习</h3>
+                        <p class="text-gray-300">学校学习的知识偏理论，教材落后</p>
+                    </div>
+                    <div class="glass p-8 rounded-2xl md:col-span-2">
+                        <h3 class="text-2xl font-bold mb-4 text-blue-300">校招情况</h3>
+                        <p class="text-gray-300">校招来的企业较差，基本以销售或客服为主</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 3: 产品介绍 -->
+    <section id="product" class="page-section bg-gradient-to-b from-gray-950 via-black to-gray-950">
+        <div class="max-w-7xl mx-auto px-6 py-20">
+            <h2 class="text-5xl md:text-6xl font-black text-center mb-16 gradient-text">产品介绍</h2>
+
+            <div class="space-y-12">
+                <!-- 简介 -->
+                <div class="glass p-8 rounded-2xl">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">01</span>
+                        </div>
+                        <h3 class="text-3xl font-bold">简介</h3>
+                    </div>
+                    <ul class="space-y-3 text-lg text-gray-300 mb-6">
+                        <li>• 我们的 <span class="highlight">"企业订单班"</span> 可以让你在找工作的时候<span class="highlight-blue">快人一步</span></li>
+                        <li>• 这是<span class="highlight">央视报道</span>的新型就业服务平台</li>
+                        <li>• 我们的"企业订单班"与2700家企业合作、与企业共同教学，共同管理，共同就业</li>
+                    </ul>
+                    <p class="text-gray-400 mb-4">小程序"轮播图"</p>
+                    <img src="../../product-showcase/src/assets/images/p_1.png" class="phone-img mx-auto rounded-lg shadow-2xl" alt="轮播图">
+                </div>
+
+                <!-- 企业资源多 -->
+                <div class="glass p-8 rounded-2xl">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">02</span>
+                        </div>
+                        <h3 class="text-3xl font-bold">企业资源多</h3>
+                    </div>
+                    <p class="text-lg text-gray-300 mb-6">合作企业多</p>
+                    <p class="text-gray-400 mb-4">小程序"订单班-企业链接计划"</p>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <img src="../../product-showcase/src/assets/images/S图产品流程_1.png" class="phone-img mx-auto rounded-lg shadow-2xl" alt="产品流程">
+                        <img src="../../product-showcase/src/assets/images/企业链接计划.PNG" class="phone-img mx-auto rounded-lg shadow-2xl" alt="企业链接计划">
+                    </div>
+                </div>
+
+                <!-- 岗位种类多 -->
+                <div class="glass p-8 rounded-2xl">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">03</span>
+                        </div>
+                        <h3 class="text-3xl font-bold">岗位种类多</h3>
+                    </div>
+                    <ul class="space-y-3 text-lg text-gray-300 mb-6">
+                        <li>• <span class="highlight">企业的很多好岗位是不对社会公开招聘的</span>，我们合作的企业前50％岗位只从我们的学员里挑选</li>
+                        <li>• 每个"企业订单班"都是<span class="highlight-blue">对标40多个岗位</span>，有很多都是你在学校学的专业去不了的岗位</li>
+                    </ul>
+                    <p class="text-gray-400 mb-4">就业榜</p>
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                        <img src="../../product-showcase/src/assets/images/智能开发-就业榜.png" class="square-img mx-auto rounded-lg shadow-xl" alt="智能开发就业榜">
+                        <img src="../../product-showcase/src/assets/images/视觉设计-就业榜.png" class="square-img mx-auto rounded-lg shadow-xl" alt="视觉设计就业榜">
+                        <img src="../../product-showcase/src/assets/images/智能制造-就业榜.png" class="square-img mx-auto rounded-lg shadow-xl" alt="智能制造就业榜">
+                        <img src="../../product-showcase/src/assets/images/财经商贸-就业榜.png" class="square-img mx-auto rounded-lg shadow-xl" alt="财经商贸就业榜">
+                    </div>
+                </div>
+
+                <!-- 只学有用的 -->
+                <div class="glass p-8 rounded-2xl">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">04</span>
+                        </div>
+                        <h3 class="text-3xl font-bold">只学有用的</h3>
+                    </div>
+                    <p class="text-lg text-gray-300 mb-6">
+                        各大企业会派驻<span class="highlight">专家</span>在我们的教务平台给大家上课
+                        <span class="highlight-blue">什么技术有用教什么，什么工资高教什么</span>
+                    </p>
+                    <p class="text-gray-400 mb-4">教务系统截图</p>
+                    <img src="../../product-showcase/src/assets/images/公共直播间.png" class="wide-img rounded-lg shadow-2xl" alt="公共直播间">
+                </div>
+
+                <!-- 学习AI最新应用 -->
+                <div class="glass p-8 rounded-2xl">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">05</span>
+                        </div>
+                        <h3 class="text-3xl font-bold">学习AI最新应用</h3>
+                    </div>
+                    <ul class="space-y-3 text-lg text-gray-300 mb-6">
+                        <li>• <span class="highlight">专科生唯一能逆风翻盘的法宝就是AI的应用能力</span>"订单班"各行业的专家会教授学员AI在工作中的各种最新应用，AI应用能力是当下企业在招聘中的重要参考条件</li>
+                        <li>• AI不难学，你只要输入一些简单的命令，我们的"多多智能体"便<span class="highlight-blue">可以轻松的生成一整套的项目方案</span>，便于掌握"项目经验"，便于打造"个人作品"</li>
+                    </ul>
+                    <p class="text-gray-400 mb-4">多多agent</p>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <img src="../../product-showcase/src/assets/images/agent_1.png" class="wide-img rounded-lg shadow-xl" alt="Agent 1">
+                        <img src="../../product-showcase/src/assets/images/agent_2.png" class="wide-img rounded-lg shadow-xl" alt="Agent 2">
+                        <img src="../../product-showcase/src/assets/images/agent_3.png" class="wide-img rounded-lg shadow-xl" alt="Agent 3">
+                        <img src="../../product-showcase/src/assets/images/agent_4.png" class="wide-img rounded-lg shadow-xl" alt="Agent 4">
+                    </div>
+                </div>
+
+                <!-- 入学即跨入职场 -->
+                <div class="glass p-8 rounded-2xl">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">06</span>
+                        </div>
+                        <h3 class="text-3xl font-bold">入学即跨入职场</h3>
+                    </div>
+                    <ul class="space-y-3 text-lg text-gray-300 mb-6">
+                        <li>• 你在上课的过程中，<span class="highlight">企业HR</span>也会在平台上随时关注你</li>
+                        <li>• 实习或毕业的时候我们会给你<span class="highlight-blue">内推岗位</span>，当你的同学不知道怎么找工作的时候，而你却在我们给你内推的岗位中 <span class="highlight">"挑选工作"</span></li>
+                    </ul>
+                    <p class="text-gray-400 mb-4">教务中的hr访问</p>
+                    <div class="grid md:grid-cols-3 gap-4">
+                        <img src="../../product-showcase/src/assets/images/HR访问_1.png" class="wide-img rounded-lg shadow-xl" alt="HR访问1">
+                        <img src="../../product-showcase/src/assets/images/HR访问_2.png" class="wide-img rounded-lg shadow-xl" alt="HR访问2">
+                        <img src="../../product-showcase/src/assets/images/HR访问_3.png" class="wide-img rounded-lg shadow-xl" alt="HR访问3">
+                    </div>
+                </div>
+
+                <!-- 定制化服务 -->
+                <div class="glass p-8 rounded-2xl">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-14 h-14 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
+                            <span class="text-white font-bold text-xl">07</span>
+                        </div>
+                        <h3 class="text-3xl font-bold">定制化服务</h3>
+                    </div>
+                    <p class="text-lg text-gray-300 mb-6">
+                        你知道找工作有多<span class="highlight">麻烦</span>吗？需要准备很多材料的，而且你也写不到点上
+                    </p>
+
+                    <div class="space-y-8">
+                        <!-- 简历 -->
+                        <div class="bg-black/30 p-6 rounded-xl">
+                            <h4 class="text-2xl font-bold text-purple-300 mb-4">简历</h4>
+                            <p class="text-gray-300 mb-4">
+                                找不同的工作就得写不同的简历，每份简历都得按照企业的招聘要求来写，写的不好企业直接丢垃圾桶这些简历我们的<span class="highlight">专家会帮你</span>写好
+                            </p>
+                            <p class="text-gray-400 mb-2">简历与面试题</p>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <img src="../../product-showcase/src/assets/images/简历与面试题_1.png" class="wide-img rounded-lg" alt="简历1">
+                                <img src="../../product-showcase/src/assets/images/简历与面试题_2.png" class="wide-img rounded-lg" alt="简历2">
+                            </div>
+                        </div>
+
+                        <!-- 项目经验 -->
+                        <div class="bg-black/30 p-6 rounded-xl">
+                            <h4 class="text-2xl font-bold text-blue-300 mb-4">项目经验</h4>
+                            <p class="text-gray-300 mb-4">
+                                找工作的时候企业一般会问你有没有项目经验，这就要求你寒暑假得去企业里边干活边了解而我们在课堂上就会教你不同的项目案例，专家也会把项目案例整理好发给你，你<span class="highlight-blue">不用寒暑假打工</span>就能有一定的项目经验了
+                            </p>
+                            <p class="text-gray-400 mb-2">我的项目库</p>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <img src="../../product-showcase/src/assets/images/项目库_1.png" class="wide-img rounded-lg" alt="项目库1">
+                                <img src="../../product-showcase/src/assets/images/项目库_2.png" class="wide-img rounded-lg" alt="项目库2">
+                            </div>
+                        </div>
+
+                        <!-- 作品 -->
+                        <div class="bg-black/30 p-6 rounded-xl">
+                            <h4 class="text-2xl font-bold text-purple-300 mb-4">作品</h4>
+                            <p class="text-gray-300 mb-4">
+                                简历被企业录用后，企业还会让你提供作品，一般我们学校的学生都拿不出手而你的作品我们的企业专家会<span class="highlight">提前帮你</span>做好
+                            </p>
+                            <p class="text-gray-400 mb-2">我的作品集</p>
+                            <img src="../../product-showcase/src/assets/images/作品集.png" class="wide-img rounded-lg" alt="作品集">
+                        </div>
+
+                        <!-- 面试 -->
+                        <div class="bg-black/30 p-6 rounded-xl">
+                            <h4 class="text-2xl font-bold text-blue-300 mb-4">面试</h4>
+                            <p class="text-gray-300 mb-4">
+                                找工作只有一个考试，那就是面试我们学校的很多同学第一次面试的时候都紧张的说不出话来，一方面是因为肚子里没东西，另一方面是因为根本不知道面试的规则与套路而我们在苏州的线下城市站点有<span class="highlight-blue">面试培训</span>，到你快找工作的时候培训几次就能游刃有余面试了
+                            </p>
+                            <p class="text-gray-400 mb-2">线下面试规划</p>
+                            <div class="grid md:grid-cols-2 gap-4">
+                                <img src="../../product-showcase/src/assets/images/线下模拟面试_1.png" class="wide-img rounded-lg" alt="面试1">
+                                <img src="../../product-showcase/src/assets/images/线下模拟面试_2.png" class="wide-img rounded-lg" alt="面试2">
+                            </div>
+                        </div>
+
+                        <!-- Q&A -->
+                        <div class="bg-gradient-to-r from-purple-900/20 to-blue-900/20 p-6 rounded-xl">
+                            <p class="text-purple-300 font-bold mb-2">问：不是有内推岗位吗？怎么还要准备简历、作品这些材料？</p>
+                            <p class="text-gray-300">答：所有的招聘都需要走流程，这些材料是你和企业相互了解的<span class="highlight">前提</span></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 4: 大一推广 -->
+    <section id="freshman" class="page-section bg-gradient-to-b from-gray-950 via-purple-950/10 to-black">
+        <div class="max-w-7xl mx-auto px-6 py-20">
+            <h2 class="text-5xl md:text-6xl font-black text-center mb-16 gradient-text">大一推广介绍</h2>
+
+            <div class="space-y-8">
+                <!-- 大专生尴尬处境 -->
+                <div class="glass p-8 rounded-2xl">
+                    <h3 class="text-3xl font-bold text-purple-300 mb-6">大专生尴尬处境</h3>
+                    <p class="text-lg text-gray-300 leading-relaxed">
+                        比技能吧，比不过技校，他们早就开始实操学技术了，我们还在学语数外比学历吧，比不过985／211一流本科，他们可以去考公考编考研等，未来路径也比大专多而大专生能走的路只有一条，那就是再考本科，那万一考不上呢？苏州每年<span class="highlight">专升本的录取率只有15％</span>，有教育厅发的文件，自己可以查，没有转本机构宣传的9５％以上的录取率
+                    </p>
+                </div>
+
+                <!-- 转本文凭也找不到好工作 -->
+                <div class="glass p-8 rounded-2xl">
+                    <h3 class="text-3xl font-bold text-blue-300 mb-6">转本文凭也找不到好工作</h3>
+                    <ul class="space-y-3 text-lg text-gray-300">
+                        <li>• 社会上承认的具有含金量的学历是985／211的本科学历，<span class="highlight">专升本的学历没有任何含金量</span>，大多数考上的本科都是民办本科，而且本科毕业证上会注明（专科起点／专转本／二年制）等字样</li>
+                        <li>• 虽说转本后可以考公考编，但是<span class="highlight-blue">考公考编的难度</span>比你高考考个一本都要难，录取率在1-2％左右</li>
+                    </ul>
+                    <div class="mt-6">
+                        <p class="text-gray-400 mb-4">转本的代价很高：</p>
+                        <ol class="list-decimal list-inside text-gray-300 space-y-2">
+                            <li>学费高</li>
+                            <li>学习周期长</li>
+                            <li>考试数量多</li>
+                            <li>对口就业的岗位并没有增加</li>
+                            <li>薪资并不会提高</li>
+                            <li>岗位晋升空间并不大</li>
+                        </ol>
+                    </div>
+                    <p class="text-gray-400 mt-6 mb-2">专升本对比图</p>
+                    <img src="../../product-showcase/src/assets/images/三维柱状图.png" class="wide-img rounded-lg shadow-2xl mt-4" alt="三维柱状图">
+                </div>
+
+                <!-- 学校课程难学 -->
+                <div class="glass p-8 rounded-2xl">
+                    <h3 class="text-3xl font-bold text-purple-300 mb-6">学校课程难学</h3>
+                    <p class="text-lg text-gray-300">
+                        高中三年学三门语数外都学不好，大专两年要学十几二十门课，而且都是基础理论课，很难学的精
+                    </p>
+                </div>
+
+                <!-- 学校教学落后 -->
+                <div class="glass p-8 rounded-2xl">
+                    <h3 class="text-3xl font-bold text-blue-300 mb-6">学校教学落后</h3>
+                    <p class="text-lg text-gray-300">
+                        只要你找工作的时候就会发现，大学里老师教的知识都是远远落后于企业的新技术，因为<span class="highlight">老师自己都没有进过企业</span>工作过，怎么知道现在企业最新应用的设备，新技术等等
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 5: 大二推广 -->
+    <section id="sophomore" class="page-section bg-gradient-to-b from-black via-blue-950/10 to-gray-950">
+        <div class="max-w-7xl mx-auto px-6 py-20">
+            <h2 class="text-5xl md:text-6xl font-black text-center mb-16 gradient-text">给大二推广介绍</h2>
+
+            <div class="grid md:grid-cols-2 gap-8">
+                <!-- 家里有关系 -->
+                <div class="glass p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-purple-300 mb-4">家里有关系</h3>
+                    <p class="text-gray-300">
+                        家里有关系的，能够介绍工作固然好，但也得自己有本事，不然<span class="highlight">很难在企业留得住</span>，我们身边太多同学是靠家里关系找到工作的，但因为个人能力不行，进了企业要么干不了几个月被轰出来，要么只能去一些边缘岗位，薪资少得可怜
+                    </p>
+                </div>
+
+                <!-- 大二换专业 -->
+                <div class="glass p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-blue-300 mb-4">大二换专业</h3>
+                    <p class="text-gray-300">
+                        很多大二的同学面对自己的专业根本学不进去，问题就出在通过一年的大学学习，他发现不喜欢自己所学的专业，但是学校又不能随便换专业，而我们的"订单班"给了同学<span class="highlight-blue">重新选择专业</span>的机会
+                    </p>
+                </div>
+
+                <!-- 大三实习 -->
+                <div class="glass p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-purple-300 mb-4">大三实习</h3>
+                    <p class="text-gray-300">
+                        大三的时候，如果专业学习不精的话，根本<span class="highlight">找不到像样的实习工作</span>，与其去端盘子或打螺丝，不如花点时间好好学习"订单班"的知识，同样干一个月能拿七八千，何必累死累活拿两三千
+                    </p>
+                </div>
+
+                <!-- 一起上班 -->
+                <div class="glass p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-blue-300 mb-4">一起上班</h3>
+                    <p class="text-gray-300">
+                        考虑到同学毕业第一次工作的时候有"孤单感"，我们的"订单班"内推岗位会为同校同班的同学优先推送相同岗位，这样好友就可以一起去<span class="highlight-blue">同一家企业上班</span>
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 6: 报名 -->
+    <section id="registration" class="page-section bg-gradient-to-b from-gray-950 to-black">
+        <div class="max-w-7xl mx-auto px-6 py-20">
+            <h2 class="text-5xl md:text-6xl font-black text-center mb-16 gradient-text">报名</h2>
+
+            <div class="space-y-8">
+                <!-- 名额规则介绍 -->
+                <div class="glass p-8 rounded-2xl">
+                    <h3 class="text-3xl font-bold text-purple-300 mb-6">名额规则介绍</h3>
+                    <ul class="space-y-3 text-lg text-gray-300 mb-6">
+                        <li>• 因为企业<span class="highlight">专家资源有限</span>，12个"企业订单班"，一届只能在全省招生2400人，平均每班只能招生200人，苏州12个"企业订单班"的总名额为319人，平均每班只招20多人</li>
+                        <li>• 具体名额需要学生小程序查看每校的<span class="highlight-blue">名额分配</span></li>
+                    </ul>
+                    <div class="bg-gradient-to-r from-purple-500/20 to-blue-500/20 p-6 rounded-xl">
+                        <p class="text-center text-2xl">苏州总名额：<span class="text-4xl font-bold gradient-text">319人</span></p>
+                    </div>
+                </div>
+
+                <!-- 代理连线销售客服 -->
+                <div class="glass p-8 rounded-2xl">
+                    <h3 class="text-3xl font-bold text-blue-300 mb-6">代理连线销售客服</h3>
+                    <ul class="space-y-3 text-lg text-gray-300">
+                        <li>• 特殊情况：若名额用完，可连线销售客服能否从其它城市调剂名额，无法调剂请为学生表示歉意</li>
+                        <li>• 重要：大一新生在没有名额的情况下，不能锁定下一年度的名额</li>
+                    </ul>
+                    <p class="text-gray-400 mt-4">联系方式：电话连线</p>
+                </div>
+
+                <!-- 营销案例 -->
+                <div class="glass p-8 rounded-2xl">
+                    <h3 class="text-3xl font-bold text-purple-300 mb-6">营销案例</h3>
+                    <ul class="space-y-3 text-lg text-gray-300">
+                        <li>• 很多同学都是父母带过来报名的</li>
+                        <li>• 产品非常实用，代理自己也买了</li>
+                    </ul>
+                </div>
+
+                <!-- 名额锁定 -->
+                <div class="glass p-8 rounded-2xl">
+                    <h3 class="text-3xl font-bold text-blue-300 mb-6">名额锁定</h3>
+                    <ul class="space-y-3 text-lg text-gray-300">
+                        <li>• 预付定金</li>
+                        <li>• 重要：<span class="text-red-400 font-bold">定金不退</span>还告知</li>
+                        <li>• 开学日期说明</li>
+                        <li>• 电子版协议签约</li>
+                    </ul>
+                    <p class="text-gray-400 mt-4">演示：小程序"电子签"</p>
+                </div>
+
+                <!-- 付款 -->
+                <div class="glass p-8 rounded-2xl">
+                    <h3 class="text-3xl font-bold text-purple-300 mb-6">付款</h3>
+                    <ul class="space-y-3 text-lg text-gray-300">
+                        <li>• 交付定金后，再扫小程序代理的"报名"二维码（<span class="highlight">20min内</span>），录入CRM系统</li>
+                        <li>• 重要：3日内付清尾款，否则名额转让给其他同学，且不退定金</li>
+                        <li>• 交付报名通知书</li>
+                        <li>• 帮助学员教务系统下载及安装</li>
+                    </ul>
+                </div>
+
+                <!-- 报名流程图片 -->
+                <div class="glass p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold text-center mb-6">报名流程展示</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <img src="../../product-showcase/src/assets/images/报名_1.PNG" class="phone-img mx-auto rounded-lg shadow-2xl" alt="报名1">
+                        <img src="../../product-showcase/src/assets/images/报名_2.PNG" class="phone-img mx-auto rounded-lg shadow-2xl" alt="报名2">
+                        <img src="../../product-showcase/src/assets/images/报名_3.PNG" class="phone-img mx-auto rounded-lg shadow-2xl" alt="报名3">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 7: 城市站点 -->
+    <section id="city" class="page-section bg-gradient-to-b from-black via-purple-950/10 to-gray-950">
+        <div class="max-w-7xl mx-auto px-6 py-20">
+            <h2 class="text-5xl md:text-6xl font-black text-center mb-16 gradient-text">城市站点</h2>
+
+            <div class="space-y-8">
+                <!-- 指导老师 -->
+                <div class="glass p-8 rounded-2xl">
+                    <h3 class="text-3xl font-bold text-purple-300 mb-6">指导老师</h3>
+                    <p class="text-lg text-gray-300">
+                        城市站点的指导老师给学生分析所学专业的<span class="highlight">未来的就业情况</span>
+                    </p>
+                </div>
+
+                <!-- 老师点评 -->
+                <div class="glass p-8 rounded-2xl">
+                    <h3 class="text-3xl font-bold text-blue-300 mb-6">老师点评</h3>
+                    <div class="mb-6">
+                        <h4 class="text-xl font-bold text-gray-200 mb-3">专业点评：</h4>
+                        <ul class="space-y-2 text-gray-300">
+                            <li>• 专业的学习特性（学习<span class="highlight">难易</span>程度）（2min）</li>
+                            <li>• 专业的就业特性（技能应用的<span class="highlight-blue">广度</span>范围/<span class="highlight">行业</span>发展状况）——3min</li>
+                        </ul>
+                    </div>
+                    <p class="text-gray-400 mb-4">Saas系统专业点评</p>
+                    <img src="../../product-showcase/src/assets/images/专业点评.png" class="wide-img rounded-lg shadow-2xl" alt="专业点评">
+                </div>
+
+                <!-- 老师选班 -->
+                <div class="glass p-8 rounded-2xl">
+                    <h3 class="text-3xl font-bold text-purple-300 mb-6">老师选班</h3>
+                    <ul class="space-y-3 text-lg text-gray-300 mb-6">
+                        <li>• 学习建议：建议拓展技能，储备相关项目经验——1min</li>
+                        <li>• 选班建议：<span class="highlight">推荐理由</span>（2min）</li>
+                    </ul>
+                    <p class="text-gray-400 mb-4">Saas系统推荐理由</p>
+                    <img src="../../product-showcase/src/assets/images/推荐理由.png" class="wide-img rounded-lg shadow-2xl" alt="推荐理由">
+                </div>
+
+                <!-- 老师教务系统演示 -->
+                <div class="glass p-8 rounded-2xl">
+                    <h3 class="text-3xl font-bold text-blue-300 mb-6">老师教务系统演示</h3>
+                    <p class="text-lg text-gray-300">
+                        演示：<span class="highlight">简历</span>/项目/<span class="highlight-blue">作品</span>/面试/内推<span class="highlight">岗位</span>（5min）
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 8: CTA -->
+    <section id="cta" class="page-section bg-gradient-to-br from-purple-900/30 via-black to-blue-900/30 flex items-center justify-center">
+        <div class="text-center max-w-5xl mx-auto px-6">
+            <h2 class="text-6xl md:text-7xl lg:text-8xl font-black mb-8">
+                <span class="gradient-text">加入我们</span>
+            </h2>
+            <h3 class="text-3xl md:text-4xl text-gray-300 mb-12">
+                成为多多畅职优秀代理成员
+            </h3>
+            <div class="glass inline-block px-12 py-8 rounded-full">
+                <p class="text-2xl gradient-text font-bold">开启你的职业新篇章</p>
+            </div>
+
+            <div class="mt-16 flex flex-wrap gap-6 justify-center">
+                <div class="glass px-8 py-4 rounded-full">
+                    <span class="text-gray-300">🎯 精准定位</span>
+                </div>
+                <div class="glass px-8 py-4 rounded-full">
+                    <span class="text-gray-300">💼 优质岗位</span>
+                </div>
+                <div class="glass px-8 py-4 rounded-full">
+                    <span class="text-gray-300">🚀 快速成长</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if(target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // 导航指示器激活状态
+        const updateActiveNav = () => {
+            const sections = document.querySelectorAll('.page-section');
+            const navItems = document.querySelectorAll('.nav-dot');
+            const scrollPosition = window.scrollY + window.innerHeight / 2;
+
+            sections.forEach((section, index) => {
+                const sectionTop = section.offsetTop;
+                const sectionBottom = sectionTop + section.offsetHeight;
+
+                if (scrollPosition >= sectionTop && scrollPosition < sectionBottom) {
+                    navItems.forEach(item => {
+                        item.classList.remove('bg-purple-500');
+                        item.classList.add('bg-gray-600');
+                    });
+                    if(navItems[index]) {
+                        navItems[index].classList.remove('bg-gray-600');
+                        navItems[index].classList.add('bg-purple-500');
+                    }
+                }
+            });
+        };
+
+        window.addEventListener('scroll', updateActiveNav);
+        window.addEventListener('load', updateActiveNav);
+
+        // 图片懒加载
+        const images = document.querySelectorAll('img');
+        images.forEach(img => {
+            img.loading = 'lazy';
+            img.addEventListener('error', function() {
+                this.style.display = 'none';
+                console.log('图片加载失败:', this.src);
+            });
+        });
+    </script>
+</body>
+</html>

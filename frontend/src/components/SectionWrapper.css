@@ -1,0 +1,137 @@
+.section-wrapper {
+  padding: 100px 0;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+/* 主题样式 */
+.section-wrapper.theme-dark {
+  background: linear-gradient(180deg,
+    #0a0a0f 0%,
+    #1a1a2e 100%);
+}
+
+.section-wrapper.theme-light {
+  background: linear-gradient(180deg,
+    #f8f9fa 0%,
+    #e9ecef 100%);
+}
+
+.section-wrapper.theme-gradient {
+  background: linear-gradient(135deg,
+    rgba(139, 92, 246, 0.05) 0%,
+    rgba(236, 72, 153, 0.05) 100%);
+  backdrop-filter: blur(10px);
+}
+
+.section-wrapper.theme-transparent {
+  background: transparent;
+}
+
+/* 添加装饰性背景效果 */
+.section-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%,
+    rgba(139, 92, 246, 0.1) 0%,
+    transparent 50%);
+  pointer-events: none;
+}
+
+.section-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 40px;
+  position: relative;
+  z-index: 1;
+}
+
+/* 标题区域 */
+.section-header {
+  text-align: center;
+  margin-bottom: 80px;
+  animation: fadeInUp 0.8s ease;
+}
+
+.section-title {
+  font-size: 3.5rem;
+  font-weight: 700;
+  margin-bottom: 20px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  letter-spacing: -1px;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-size: 1.25rem;
+  color: var(--text-muted);
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* 内容区域 */
+.section-body {
+  position: relative;
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+  .section-wrapper {
+    padding: 80px 0;
+  }
+
+  .section-container {
+    padding: 0 30px;
+  }
+
+  .section-header {
+    margin-bottom: 60px;
+  }
+
+  .section-title {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-wrapper {
+    padding: 60px 0;
+  }
+
+  .section-container {
+    padding: 0 20px;
+  }
+
+  .section-header {
+    margin-bottom: 40px;
+  }
+
+  .section-title {
+    font-size: 2rem;
+  }
+
+  .section-subtitle {
+    font-size: 1.1rem;
+  }
+}
+
+/* 动画 */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

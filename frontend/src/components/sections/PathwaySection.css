@@ -1,0 +1,249 @@
+/* 出路页面样式 */
+.pathway-section {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, var(--dark) 0%, var(--dark-light) 100%);
+  position: relative;
+  padding: 80px 40px;
+}
+
+.pathway-content {
+  max-width: 1400px;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+}
+
+/* 左右两侧样式 */
+.pathway-side {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 40px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px solid rgba(139, 92, 246, 0.3);
+  transition: all 0.4s ease;
+  min-height: 400px;
+  position: relative;
+}
+
+.pathway-side:hover {
+  transform: translateY(-10px);
+  border-color: rgba(139, 92, 246, 0.6);
+  box-shadow: 0 20px 60px rgba(139, 92, 246, 0.2);
+}
+
+.pathway-left {
+  border-left: 4px solid var(--primary);
+}
+
+.pathway-right {
+  border-right: 4px solid var(--secondary);
+}
+
+.pathway-label {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.pathway-icon {
+  font-size: 5rem;
+  opacity: 0.8;
+}
+
+/* 中间内容区域 */
+.pathway-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 40px;
+  position: relative;
+  z-index: 2;
+}
+
+.pathway-title {
+  font-size: 4rem;
+  font-weight: 900;
+  color: var(--text);
+  margin-bottom: 40px;
+  text-transform: uppercase;
+  letter-spacing: 4px;
+}
+
+.pathway-divider {
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    var(--primary) 20%,
+    var(--secondary) 50%,
+    var(--primary) 80%,
+    transparent 100%);
+  margin: 30px 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.vs-text {
+  position: absolute;
+  background: var(--dark);
+  padding: 10px 25px;
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text);
+  border: 2px solid var(--primary);
+  border-radius: 50px;
+  box-shadow: 0 0 20px rgba(139, 92, 246, 0.5);
+}
+
+.pathway-description {
+  margin-top: 30px;
+  max-width: 600px;
+}
+
+.pathway-main-text {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--text);
+  line-height: 1.8;
+  margin-bottom: 20px;
+}
+
+.pathway-sub-text {
+  font-size: 1.3rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+.highlight-text {
+  color: var(--text);
+  font-weight: 800;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  padding: 0 4px;
+}
+
+/* 选择提示 */
+.pathway-choice-hint {
+  margin-top: 40px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 15px 30px;
+  background: rgba(139, 92, 246, 0.1);
+  border-radius: 50px;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+
+.choice-text {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.choice-arrow {
+  font-size: 2rem;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.left-arrow {
+  animation-delay: 0s;
+}
+
+.right-arrow {
+  animation-delay: 1s;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 0.5;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.2);
+  }
+}
+
+/* 分隔线 */
+.pathway-separator {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 2px;
+  background: linear-gradient(90deg,
+    transparent 0%,
+    rgba(139, 92, 246, 0.5) 50%,
+    transparent 100%);
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+  .pathway-content {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+
+  .pathway-side {
+    min-height: 200px;
+  }
+
+  .pathway-title {
+    font-size: 3rem;
+  }
+
+  .pathway-main-text {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .pathway-section {
+    padding: 60px 20px;
+  }
+
+  .pathway-title {
+    font-size: 2.5rem;
+    letter-spacing: 2px;
+  }
+
+  .pathway-label {
+    font-size: 2.5rem;
+  }
+
+  .pathway-icon {
+    font-size: 3.5rem;
+  }
+
+  .pathway-main-text {
+    font-size: 1.3rem;
+  }
+
+  .pathway-sub-text {
+    font-size: 1.1rem;
+  }
+
+  .choice-text {
+    font-size: 1.2rem;
+  }
+}

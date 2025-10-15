@@ -1,0 +1,432 @@
+/* 产品介绍部分样式 */
+.product-section {
+  background: linear-gradient(180deg, var(--dark) 0%, var(--dark-light) 100%);
+}
+
+.product-content {
+  display: flex;
+  align-items: center;
+  gap: 80px;
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 40px;
+  position: relative;
+  min-height: 100vh;
+}
+
+.product-left {
+  flex: 0 0 40%;
+  position: relative;
+  z-index: 2;
+  padding-right: 40px;
+}
+
+.product-number {
+  display: inline-flex;
+  width: 60px;
+  height: 60px;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.product-title {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 30px;
+  line-height: 1.2;
+  color: var(--text);
+  white-space: nowrap; /* 防止标题换行 */
+}
+
+.product-description {
+  font-size: 1.5rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 20px;
+}
+
+.product-subdesc {
+  font-size: 1.2rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+}
+
+.product-subdesc strong {
+  color: var(--text);
+  font-weight: 600;
+  background: linear-gradient(135deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.product-right {
+  flex: 1;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 图片网格容器 */
+.product-images {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  width: 100%;
+  max-width: 800px;
+}
+
+/* 单个图片容器 */
+.product-image {
+  overflow: hidden;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  position: relative;
+  width: 100%;
+  height: 250px; /* 固定高度 */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* 企业资源板块 - 上下布局 */
+.product-content-vertical {
+  flex-direction: column;
+  align-items: center;
+  gap: 10px; /* 缩小间距到10px */
+  padding: 60px 40px;
+}
+
+.product-content-vertical .product-left {
+  flex: none;
+  width: 100%;
+  max-width: 1000px;
+  padding-right: 0;
+  text-align: left;
+}
+
+.product-content-vertical .product-right {
+  width: 100%;
+  max-width: 1000px;
+}
+
+#product-enterprise .product-images {
+  max-width: 100%;
+  gap: 30px; /* 增加图片间距 */
+  grid-template-columns: repeat(2, 1fr); /* 两列并排 */
+}
+
+#product-enterprise .product-image {
+  height: 350px; /* 增加图片高度从250px到350px */
+}
+
+#product-enterprise .product-image img {
+  transform: scale(1.1); /* 放大图片10% */
+}
+
+/* 掌握AI板块 - 放大单张图片并完整显示 */
+#product-ai .product-images {
+  max-width: 700px; /* 增加容器宽度 */
+  grid-template-columns: 1fr; /* 单列 */
+}
+
+#product-ai .product-image {
+  height: auto; /* 自动高度，不限制 */
+  min-height: 500px; /* 最小高度 */
+  max-width: 700px; /* 从600px增加到700px */
+  margin: 0 auto; /* 居中 */
+  overflow: visible; /* 允许内容显示 */
+}
+
+#product-ai .product-image img {
+  transform: none; /* 移除缩放，保持原始大小 */
+  width: 100%; /* 宽度填满容器 */
+  height: auto; /* 高度自适应 */
+  max-width: 100%; /* 最大宽度 */
+  object-fit: contain; /* 完整显示，不裁剪 */
+}
+
+/* 工作门道板块 - 放大单张图片 */
+#product-career .product-images {
+  max-width: 800px;
+  grid-template-columns: 1fr;
+}
+
+#product-career .product-image {
+  height: auto;
+  min-height: 450px;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+#product-career .product-image img {
+  transform: none;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* AI能力板块 - 图片并排显示 */
+#product-aiPower .product-images {
+  max-width: 100%;
+  grid-template-columns: repeat(2, 1fr); /* 两列并排 */
+  gap: 30px;
+}
+
+#product-aiPower .product-image {
+  height: 350px;
+  overflow: visible;
+}
+
+#product-aiPower .product-image img {
+  transform: none;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* 就业规划板块 - 完整显示图片 */
+#product-careerPlan .product-images {
+  max-width: 100%;
+  gap: 30px;
+}
+
+#product-careerPlan .product-image {
+  height: auto; /* 自动高度 */
+  min-height: 350px; /* 最小高度 */
+  overflow: visible; /* 允许完整显示 */
+}
+
+#product-careerPlan .product-image img {
+  transform: none; /* 不缩放 */
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain; /* 保持比例，完整显示 */
+}
+
+/* 面试板块 - 放大单张图片 */
+#product-interview .product-images {
+  max-width: 800px;
+  grid-template-columns: 1fr; /* 单列 */
+}
+
+#product-interview .product-image {
+  height: auto;
+  min-height: 500px;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+#product-interview .product-image img {
+  transform: none;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* 老板板块 - 放大单张图片 */
+#product-boss .product-images {
+  max-width: 800px;
+  grid-template-columns: 1fr;
+}
+
+#product-boss .product-image {
+  height: auto;
+  min-height: 500px;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+#product-boss .product-image img {
+  transform: none;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* 求职渠道板块 - 三张图片横向排列 */
+#product-jobChannel .product-images {
+  max-width: 100%;
+  grid-template-columns: repeat(3, 1fr); /* 三列并排 */
+  gap: 20px;
+}
+
+#product-jobChannel .product-image {
+  height: 300px;
+  overflow: visible;
+}
+
+#product-jobChannel .product-image img {
+  transform: none;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+/* 问BOSS板块 - 放大单张图片 */
+#product-askBoss .product-images {
+  max-width: 800px;
+  grid-template-columns: 1fr;
+}
+
+#product-askBoss .product-image {
+  height: auto;
+  min-height: 500px;
+  max-width: 800px;
+  margin: 0 auto;
+  overflow: visible;
+}
+
+#product-askBoss .product-image img {
+  transform: none;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
+.product-image::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg,
+    rgba(139, 92, 246, 0.1) 0%,
+    rgba(236, 72, 153, 0.1) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  z-index: 1;
+}
+
+.product-image:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.3);
+}
+
+.product-image:hover::before {
+  opacity: 1;
+}
+
+.product-image img {
+  width: auto;
+  height: auto;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain; /* 保持原始比例，不裁剪 */
+  display: block;
+}
+
+/* 高亮框样式 */
+.highlight-box {
+  display: inline-block;
+  padding: 4px 12px;
+  background: rgba(139, 92, 246, 0.1);
+  border-radius: 6px;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+  color: var(--text);
+  font-weight: 600;
+}
+
+.highlight {
+  color: var(--text);
+  font-weight: 600;
+  position: relative;
+  padding: 0 4px;
+}
+
+.highlight::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  opacity: 0.6;
+}
+
+/* 动画效果 */
+.slide-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  animation: slideInLeft 0.8s ease forwards;
+}
+
+.slide-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  animation: slideInRight 0.8s ease forwards;
+}
+
+@keyframes slideInLeft {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInRight {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 968px) {
+  .product-content {
+    flex-direction: column;
+    gap: 40px;
+  }
+
+  .product-left {
+    flex: none;
+    text-align: center;
+    padding-right: 0;
+  }
+
+  .product-title {
+    font-size: 2.5rem;
+    white-space: normal; /* 移动端允许换行 */
+  }
+
+  .product-number {
+    margin: 0 auto 20px;
+  }
+
+  .product-images {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .product-content {
+    padding: 40px 20px;
+  }
+
+  .product-title {
+    font-size: 2rem;
+  }
+
+  .product-description {
+    font-size: 1.2rem;
+  }
+}

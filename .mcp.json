@@ -1,0 +1,71 @@
+{
+  "mcpServers": {
+    "context7": {
+      "type": "stdio",
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp"
+      ],
+      "env": {}
+    },
+    "browser-tools": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@agentdeskai/browser-tools-mcp@latest"
+      ],
+      "enabled": true
+    },
+    "claude-code-mcp": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@steipete/claude-code-mcp@latest"
+      ]
+    },
+    "promptx": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "-f",
+        "--registry",
+        "https://registry.npmjs.org",
+        "dpml-prompt@beta",
+        "mcp-server"
+      ]
+    },
+    "playwright": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@playwright/mcp@latest"
+      ],
+      "env": {}
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    },
+    "feishu-api": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "apifox-mcp-server@latest",
+        "--project-id=6808546"
+      ],
+      "env": {
+        "APIFOX_ACCESS_TOKEN": "APS-unMJRsbd0NZeaqd99nAIhdN63mVPUkzX"
+      }
+    },
+    "shadcn-ui-server": {
+      "command": "npx",
+      "args": [
+        "@heilgar/shadcn-ui-mcp-server"
+      ]
+    }
+  }
+}

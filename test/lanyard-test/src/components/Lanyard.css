@@ -1,0 +1,275 @@
+.lanyard-container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: dropDown 1.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  transform-origin: top center;
+}
+
+.lanyard-container.animate {
+  animation: swing 2s ease-in-out infinite;
+}
+
+/* 挂绳部分 */
+.lanyard-rope {
+  position: relative;
+  width: 2px;
+  height: 100px;
+  margin-bottom: -10px;
+  z-index: 1;
+}
+
+.rope-line {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 2px;
+  height: 100%;
+  background: linear-gradient(180deg,
+    rgba(139, 92, 246, 0.3) 0%,
+    rgba(139, 92, 246, 0.6) 100%);
+  box-shadow: 0 0 10px rgba(139, 92, 246, 0.3);
+}
+
+.rope-clip {
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 20px;
+  height: 30px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  border-radius: 40% 40% 50% 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+}
+
+.rope-clip::before {
+  content: '';
+  width: 10px;
+  height: 10px;
+  background: rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+}
+
+/* 工牌卡片部分 */
+.lanyard-card {
+  position: relative;
+  width: 320px;
+  background: linear-gradient(135deg,
+    rgba(255, 255, 255, 0.95) 0%,
+    rgba(255, 255, 255, 0.85) 100%);
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.2),
+    0 0 60px rgba(139, 92, 246, 0.2);
+  backdrop-filter: blur(10px);
+  transform: perspective(1000px) rotateX(2deg);
+  transition: transform 0.3s ease;
+}
+
+.lanyard-card:hover {
+  transform: perspective(1000px) rotateX(0deg) scale(1.05);
+}
+
+/* 卡片头部 */
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 2px solid rgba(139, 92, 246, 0.1);
+}
+
+.card-logo {
+  font-size: 1.2rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.card-badge {
+  padding: 5px 15px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+/* 照片区域 */
+.card-photo {
+  width: 120px;
+  height: 120px;
+  margin: 20px auto;
+  background: rgba(139, 92, 246, 0.05);
+  border-radius: 50%;
+  border: 3px solid rgba(139, 92, 246, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.photo-placeholder {
+  width: 80px;
+  height: 80px;
+}
+
+.photo-placeholder svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* 信息区域 */
+.card-info {
+  text-align: center;
+  margin: 20px 0;
+}
+
+.card-name {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #1a1a2e;
+  margin-bottom: 10px;
+}
+
+.card-title {
+  font-size: 1rem;
+  color: #666;
+  font-style: italic;
+}
+
+/* 权益部分 */
+.card-benefits {
+  display: flex;
+  justify-content: space-around;
+  margin: 25px 0;
+  padding: 20px 0;
+  background: rgba(139, 92, 246, 0.05);
+  border-radius: 15px;
+}
+
+.benefit-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.benefit-icon {
+  font-size: 1.5rem;
+}
+
+.benefit-text {
+  font-size: 0.85rem;
+  color: #666;
+  font-weight: 500;
+}
+
+/* 底部按钮 */
+.card-footer {
+  margin: 20px 0;
+}
+
+.apply-button {
+  width: 100%;
+  padding: 15px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 5px 15px rgba(139, 92, 246, 0.3);
+}
+
+.apply-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(139, 92, 246, 0.4);
+}
+
+/* 条形码装饰 */
+.card-barcode {
+  margin-top: 20px;
+  padding-top: 15px;
+  border-top: 1px dashed rgba(139, 92, 246, 0.2);
+}
+
+.barcode-lines {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  height: 40px;
+  gap: 2px;
+}
+
+.barcode-lines span {
+  display: block;
+  background: #333;
+  height: 100%;
+  opacity: 0.8;
+}
+
+/* 动画 */
+@keyframes dropDown {
+  0% {
+    transform: translateY(-100vh) rotate(-10deg) scale(0.8);
+    opacity: 0;
+  }
+  30% {
+    opacity: 1;
+  }
+  50% {
+    transform: translateY(30px) rotate(5deg) scale(1.05);
+  }
+  65% {
+    transform: translateY(-15px) rotate(-3deg) scale(0.98);
+  }
+  80% {
+    transform: translateY(10px) rotate(2deg) scale(1.02);
+  }
+  90% {
+    transform: translateY(-5px) rotate(-1deg) scale(0.99);
+  }
+  100% {
+    transform: translateY(0) rotate(0) scale(1);
+    opacity: 1;
+  }
+}
+
+@keyframes swing {
+  0%, 100% {
+    transform: rotate(-2deg);
+  }
+  50% {
+    transform: rotate(2deg);
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .lanyard-card {
+    width: 280px;
+    padding: 20px;
+  }
+
+  .card-name {
+    font-size: 1.3rem;
+  }
+
+  .card-benefits {
+    flex-direction: column;
+    gap: 15px;
+  }
+}

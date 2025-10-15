@@ -1,0 +1,14 @@
+/* Lenis平滑滚动容器样式 */
+#smooth-wrapper {
+  width: 100%;
+}
+
+#smooth-content {
+  width: 100%;
+}
+
+/* 确保导航栏保持固定 */
+.navigation {
+  position: fixed !important;
+  z-index: 9999;
+}

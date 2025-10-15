@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>多多畅职 - 产品展示页面布局</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* 自定义滚动条 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #1a1a1a;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(to bottom, #9333ea, #3b82f6);
+            border-radius: 4px;
+        }
+
+        /* 全屏页面容器 */
+        .page-section {
+            min-height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* 渐变文字 */
+        .gradient-text {
+            background: linear-gradient(135deg, #9333ea 0%, #3b82f6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        /* 玻璃态效果 */
+        .glass {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        /* 网格背景 */
+        .grid-bg {
+            background-image:
+                linear-gradient(rgba(147, 51, 234, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(147, 51, 234, 0.03) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+
+        /* 动画 */
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+
+        @keyframes pulse-glow {
+            0%, 100% { opacity: 0.5; }
+            50% { opacity: 1; }
+        }
+
+        .float-animation {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .pulse-glow {
+            animation: pulse-glow 3s ease-in-out infinite;
+        }
+    </style>
+</head>
+<body class="bg-black text-white overflow-x-hidden">
+
+    <!-- 固定导航指示器 -->
+    <nav class="fixed right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-4">
+        <a href="#hero" class="w-3 h-3 rounded-full bg-purple-500 hover:scale-125 transition-transform"></a>
+        <a href="#confusion" class="w-3 h-3 rounded-full bg-gray-600 hover:scale-125 transition-transform"></a>
+        <a href="#product" class="w-3 h-3 rounded-full bg-gray-600 hover:scale-125 transition-transform"></a>
+        <a href="#freshman" class="w-3 h-3 rounded-full bg-gray-600 hover:scale-125 transition-transform"></a>
+        <a href="#sophomore" class="w-3 h-3 rounded-full bg-gray-600 hover:scale-125 transition-transform"></a>
+        <a href="#registration" class="w-3 h-3 rounded-full bg-gray-600 hover:scale-125 transition-transform"></a>
+        <a href="#city" class="w-3 h-3 rounded-full bg-gray-600 hover:scale-125 transition-transform"></a>
+        <a href="#cta" class="w-3 h-3 rounded-full bg-gray-600 hover:scale-125 transition-transform"></a>
+    </nav>
+
+    <!-- Page 1: Hero -->
+    <section id="hero" class="page-section grid-bg">
+        <div class="absolute inset-0 bg-gradient-to-br from-purple-900/20 via-transparent to-blue-900/20"></div>
+        <div class="relative z-10 text-center max-w-6xl mx-auto px-6">
+            <h1 class="text-8xl md:text-9xl font-black mb-6">
+                <span class="gradient-text">多多畅职</span>
+            </h1>
+            <div class="inline-block glass px-6 py-2 rounded-full mb-8">
+                <span class="text-sm tracking-widest text-gray-400">产品介绍</span>
+            </div>
+            <h2 class="text-3xl md:text-5xl font-bold mb-12">
+                <span class="text-white">找工作，</span>
+                <span class="text-purple-400">谁发工资</span>
+                <span class="text-white">，</span>
+                <span class="text-blue-400">谁说的算</span>
+            </h2>
+            <div class="flex gap-4 justify-center">
+                <span class="glass px-4 py-2 rounded-full text-sm">📺 央视报道</span>
+                <span class="glass px-4 py-2 rounded-full text-sm">🤝 2700+企业</span>
+                <span class="glass px-4 py-2 rounded-full text-sm">⚡ 快人一步</span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 2: 迷茫 -->
+    <section id="confusion" class="page-section bg-gradient-to-b from-black to-gray-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-6xl font-black text-center mb-16 gradient-text">迷茫</h2>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div class="glass p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-4 text-purple-300">从迷茫开始</h3>
+                    <p class="text-gray-300 mb-4">你知道自己的专业可以找到什么工作吗？</p>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="bg-gray-800 h-32 rounded-lg"></div>
+                        <div class="bg-gray-800 h-32 rounded-lg"></div>
+                        <div class="bg-gray-800 h-32 rounded-lg"></div>
+                    </div>
+                </div>
+                <div class="glass p-8 rounded-2xl">
+                    <h3 class="text-2xl font-bold mb-4 text-blue-300">就业的恐惧</h3>
+                    <p class="text-gray-300">万一找不到工作怎么办？</p>
+                    <p class="text-gray-400 text-sm mt-4">普通专科生的就业现状：吉祥三宝/铁人三项/主播、销售路、服务员</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 3: 产品介绍 -->
+    <section id="product" class="page-section bg-gradient-to-b from-gray-900 to-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-6xl font-black text-center mb-16 gradient-text">产品介绍</h2>
+
+            <!-- 卡片网格布局 -->
+            <div class="space-y-8">
+                <!-- 简介卡片 -->
+                <div class="glass p-8 rounded-2xl">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
+                            <span class="text-white font-bold">01</span>
+                        </div>
+                        <h3 class="text-3xl font-bold">简介</h3>
+                    </div>
+                    <p class="text-gray-300 text-lg mb-4">
+                        我们的 <span class="text-purple-400 font-bold">"企业订单班"</span> 可以让你在找工作的时候<span class="text-blue-400 font-bold">快人一步</span>
+                    </p>
+                    <div class="bg-gray-800/50 h-48 rounded-xl mt-6"></div>
+                </div>
+
+                <!-- 企业资源卡片 -->
+                <div class="glass p-8 rounded-2xl">
+                    <div class="flex items-center gap-4 mb-6">
+                        <div class="w-12 h-12 bg-gradient-to-br from-purple-500 to-blue-500 rounded-xl flex items-center justify-center">
+                            <span class="text-white font-bold">02</span>
+                        </div>
+                        <h3 class="text-3xl font-bold">企业资源多</h3>
+                    </div>
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div class="bg-gray-800/50 h-48 rounded-xl"></div>
+                        <div class="bg-gray-800/50 h-48 rounded-xl"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 4: 大一推广 -->
+    <section id="freshman" class="page-section bg-gradient-to-b from-black via-purple-950/10 to-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-6xl font-black text-center mb-16 gradient-text">大一推广介绍</h2>
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="glass p-6 rounded-xl hover:scale-105 transition-transform">
+                    <h3 class="text-xl font-bold text-purple-300 mb-3">大专生尴尬处境</h3>
+                    <p class="text-gray-400 text-sm">比技能比不过技校，比学历比不过985/211...</p>
+                </div>
+                <div class="glass p-6 rounded-xl hover:scale-105 transition-transform">
+                    <h3 class="text-xl font-bold text-blue-300 mb-3">转本文凭含金量</h3>
+                    <p class="text-gray-400 text-sm">专升本的学历没有任何含金量...</p>
+                </div>
+                <div class="glass p-6 rounded-xl hover:scale-105 transition-transform">
+                    <h3 class="text-xl font-bold text-purple-300 mb-3">学校课程难学</h3>
+                    <p class="text-gray-400 text-sm">大专两年要学十几二十门课...</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 5: 大二推广 -->
+    <section id="sophomore" class="page-section bg-gradient-to-b from-black via-blue-950/10 to-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-6xl font-black text-center mb-16 gradient-text">给大二推广介绍</h2>
+            <div class="flex flex-wrap justify-center gap-8">
+                <div class="glass p-8 rounded-2xl max-w-md">
+                    <h3 class="text-2xl font-bold text-blue-300 mb-4">大二换专业</h3>
+                    <p class="text-gray-300">很多大二的同学面对自己的专业根本学不进去，而我们的"订单班"给了同学<span class="text-purple-400 font-bold">重新选择专业</span>的机会</p>
+                </div>
+                <div class="glass p-8 rounded-2xl max-w-md">
+                    <h3 class="text-2xl font-bold text-purple-300 mb-4">一起上班</h3>
+                    <p class="text-gray-300">考虑到同学毕业第一次工作的时候有"孤单感"，我们会为同校同班的同学优先推送相同岗位</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 6: 报名 -->
+    <section id="registration" class="page-section bg-gradient-to-b from-black to-gray-900">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-6xl font-black text-center mb-16 gradient-text">报名</h2>
+            <div class="max-w-4xl mx-auto">
+                <div class="glass p-8 rounded-2xl mb-8">
+                    <h3 class="text-3xl font-bold text-purple-300 mb-6">名额规则介绍</h3>
+                    <p class="text-gray-300 mb-4">
+                        因为企业<span class="text-purple-400 font-bold">专家资源有限</span>，12个"企业订单班"，一届只能在全省招生2400人
+                    </p>
+                    <div class="bg-gradient-to-r from-purple-500/20 to-blue-500/20 p-4 rounded-xl">
+                        <p class="text-center text-xl">苏州总名额：<span class="text-3xl font-bold gradient-text">319人</span></p>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="glass p-6 rounded-xl">
+                        <h4 class="text-xl font-bold text-blue-300 mb-3">名额锁定</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li>• 预付定金</li>
+                            <li>• <span class="text-red-400">定金不退</span></li>
+                            <li>• 电子版协议签约</li>
+                        </ul>
+                    </div>
+                    <div class="glass p-6 rounded-xl">
+                        <h4 class="text-xl font-bold text-purple-300 mb-3">付款流程</h4>
+                        <ul class="space-y-2 text-gray-400">
+                            <li>• 20min内扫码录入</li>
+                            <li>• 3日内付清尾款</li>
+                            <li>• 交付报名通知书</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 7: 城市站点 -->
+    <section id="city" class="page-section bg-gradient-to-b from-gray-900 to-black">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-6xl font-black text-center mb-16 gradient-text">城市站点</h2>
+            <div class="max-w-5xl mx-auto">
+                <div class="glass p-8 rounded-2xl text-center">
+                    <h3 class="text-3xl font-bold mb-6">苏州线下城市站点</h3>
+                    <div class="grid md:grid-cols-3 gap-6 mt-8">
+                        <div class="bg-gradient-to-br from-purple-500/10 to-transparent p-6 rounded-xl">
+                            <h4 class="text-xl font-bold text-purple-300 mb-3">指导老师</h4>
+                            <p class="text-gray-400">分析专业未来就业情况</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-blue-500/10 to-transparent p-6 rounded-xl">
+                            <h4 class="text-xl font-bold text-blue-300 mb-3">老师点评</h4>
+                            <p class="text-gray-400">专业学习特性与就业特性</p>
+                        </div>
+                        <div class="bg-gradient-to-br from-purple-500/10 to-transparent p-6 rounded-xl">
+                            <h4 class="text-xl font-bold text-purple-300 mb-3">教务演示</h4>
+                            <p class="text-gray-400">简历/项目/作品/面试/内推</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Page 8: CTA -->
+    <section id="cta" class="page-section bg-gradient-to-br from-purple-900/30 via-black to-blue-900/30">
+        <div class="text-center max-w-4xl mx-auto px-6">
+            <h2 class="text-5xl md:text-7xl font-black mb-8">
+                <span class="gradient-text">加入我们</span>
+            </h2>
+            <p class="text-2xl md:text-3xl text-gray-300 mb-12">
+                成为多多畅职优秀代理成员
+            </p>
+            <div class="glass inline-block px-12 py-6 rounded-full">
+                <p class="text-xl gradient-text font-bold">开启你的职业新篇章</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // 导航指示器激活状态
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('.page-section');
+            const navItems = document.querySelectorAll('nav a');
+
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            navItems.forEach(item => {
+                item.classList.remove('bg-purple-500');
+                item.classList.add('bg-gray-600');
+                if (item.getAttribute('href').slice(1) === current) {
+                    item.classList.remove('bg-gray-600');
+                    item.classList.add('bg-purple-500');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,3 @@
+project_name: 2025_09_20_产品手册
+language: bash  # 使用bash作为默认语言，因为这是一个文档项目
+description: 产品手册项目 - 包含需求文档和产品手册内容

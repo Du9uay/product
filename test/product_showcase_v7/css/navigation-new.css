@@ -1,0 +1,387 @@
+/* ============================================
+   更新的导航样式 - 更清晰、更友好的交互
+   ============================================ */
+
+.nav-sidebar {
+    position: fixed;
+    right: 30px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 1000;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(15px);
+    border-radius: 20px;
+    padding: 25px 20px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    transition: all 0.3s ease;
+    max-height: 80vh;
+    overflow-y: auto;
+    overflow-x: hidden;
+    /* 默认状态：低透明度，只显示当前活跃项 */
+    opacity: 0.6;
+    width: 100px;
+}
+
+/* 自定义滚动条 */
+.nav-sidebar::-webkit-scrollbar {
+    width: 4px;
+}
+
+.nav-sidebar::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 2px;
+}
+
+.nav-sidebar::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 2px;
+}
+
+.nav-sidebar::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+/* Hover状态：完全显示，展开宽度 */
+.nav-sidebar:hover {
+    opacity: 1;
+    width: 220px;
+    background: rgba(0, 0, 0, 0.85);
+}
+
+.nav-group {
+    margin-bottom: 25px;
+    transition: all 0.3s ease;
+}
+
+.nav-group:last-child {
+    margin-bottom: 0;
+}
+
+/* 分组标题 - 一级标题 */
+.nav-title {
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 10px;
+    padding-left: 12px;
+    font-weight: 600;
+    opacity: 0.85;  /* 默认就显示 */
+    transition: opacity 0.3s ease;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+/* Hover时增强分组标题 */
+.nav-sidebar:hover .nav-title {
+    opacity: 1;
+    color: rgba(255, 255, 255, 1);
+}
+
+/* 导航项容器 */
+.nav-item {
+    display: flex;
+    align-items: center;
+    padding: 8px 12px;
+    margin: 4px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 10px;
+    position: relative;
+}
+
+/* 导航项hover效果 */
+.nav-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* 导航点 */
+.nav-item .nav-dot {
+    width: 10px;
+    height: 10px;
+    min-width: 10px;
+    min-height: 10px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+/* 主要导航项 - 一级标题 */
+.nav-item.nav-main {
+    font-weight: 600;
+}
+
+.nav-item.nav-main .nav-dot {
+    display: block;
+    width: 10px;
+    height: 10px;
+    min-width: 10px;
+    min-height: 10px;
+}
+
+/* 活跃状态 */
+.nav-item.active .nav-dot {
+    background: var(--primary);
+    transform: scale(1.5);
+    box-shadow: 0 0 15px var(--primary);
+}
+
+/* Hover状态的点 */
+.nav-item:hover .nav-dot {
+    background: rgba(255, 255, 255, 0.7);
+    transform: scale(1.3);
+}
+
+/* 导航标签 */
+.nav-label {
+    color: var(--text);
+    font-size: 0.85rem;
+    margin-left: 12px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+/* 主要导航项的标签默认可见 */
+.nav-item.nav-main .nav-label {
+    opacity: 0.9 !important;
+    font-size: 0.9rem;
+    font-weight: 600;
+    display: block !important;
+}
+
+/* 默认只显示当前活跃项的标签 */
+.nav-item.active .nav-label {
+    opacity: 0.9;
+}
+
+/* Hover时显示所有标签 */
+.nav-sidebar:hover .nav-label {
+    opacity: 0.85;
+}
+
+.nav-sidebar:hover .nav-item.nav-main .nav-label {
+    opacity: 0.9;
+}
+
+.nav-sidebar:hover .nav-item.active .nav-label {
+    opacity: 1;
+    font-weight: 600;
+}
+
+/* 子项缩进 - 二级导航项 */
+.nav-item:not(.nav-main) {
+    padding-left: 32px;
+    opacity: 0.85;
+}
+
+.nav-item:not(.nav-main) .nav-dot {
+    width: 8px;
+    height: 8px;
+    min-width: 8px;
+    min-height: 8px;
+}
+
+/* 移动端响应式 */
+@media (max-width: 768px) {
+    .nav-sidebar {
+        /* 移动端固定在底部 */
+        position: fixed;
+        bottom: 20px;
+        right: 20px;
+        top: auto;
+        transform: none;
+        
+        /* 默认收起状态 */
+        width: 60px;
+        height: 60px;
+        padding: 0;
+        border-radius: 30px;
+        overflow: hidden;
+        
+        /* 优化显示 */
+        opacity: 0.9;
+        background: rgba(0, 0, 0, 0.85);
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        
+        /* 动画过渡 */
+        transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+    
+    /* 展开状态 */
+    .nav-sidebar.expanded,
+    .nav-sidebar:hover {
+        width: calc(100vw - 40px);
+        max-width: 280px;
+        height: auto;
+        max-height: 70vh;
+        padding: 20px;
+        border-radius: 20px;
+        opacity: 1;
+    }
+    
+    /* 汉堡菜单按钮 */
+    .nav-sidebar::before {
+        content: "☰";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        font-size: 24px;
+        color: white;
+        z-index: 10;
+        transition: opacity 0.3s ease;
+    }
+    
+    .nav-sidebar.expanded::before,
+    .nav-sidebar:hover::before {
+        opacity: 0;
+        pointer-events: none;
+    }
+    
+    /* 导航组和标题 */
+    .nav-group {
+        opacity: 0;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        transition-delay: 0s;
+    }
+    
+    .nav-sidebar.expanded .nav-group,
+    .nav-sidebar:hover .nav-group {
+        opacity: 1;
+        transform: translateY(0);
+        transition-delay: 0.1s;
+    }
+    
+    .nav-title {
+        font-size: 0.75rem;
+        opacity: 0.7;  /* 移动端也默认显示 */
+        margin-bottom: 8px;
+    }
+    
+    .nav-sidebar.expanded .nav-title,
+    .nav-sidebar:hover .nav-title {
+        opacity: 1;
+    }
+    
+    /* 导航项优化 */
+    .nav-item {
+        padding: 12px 10px;
+        min-height: 44px; /* iOS推荐的最小点击区域 */
+        margin: 2px 0;
+    }
+    
+    /* 移动端主要导航项样式 */
+    .nav-item.nav-main {
+        font-weight: 600;
+        padding-left: 10px;
+        opacity: 0.9;
+        margin-bottom: 4px;
+    }
+
+    .nav-item.nav-main .nav-dot {
+        display: block;
+        width: 10px;
+        height: 10px;
+        min-width: 10px;
+        min-height: 10px;
+    }
+
+    .nav-item.nav-main .nav-label {
+        opacity: 0.9;
+        font-size: 0.85rem;
+        font-weight: 600;
+    }
+    
+    /* 二级导航项 */
+    .nav-item:not(.nav-main) {
+        padding-left: 32px;
+    }
+    
+    .nav-item:not(.nav-main) .nav-dot {
+        width: 8px;
+        height: 8px;
+        min-width: 8px;
+        min-height: 8px;
+    }
+    
+    .nav-label {
+        font-size: 0.8rem;
+        margin-left: 10px;
+    }
+    
+    /* 活跃项始终显示 */
+    .nav-sidebar.expanded .nav-item.active .nav-label,
+    .nav-sidebar:hover .nav-item.active .nav-label {
+        opacity: 1;
+        font-weight: 600;
+    }
+    
+    .nav-sidebar.expanded .nav-label,
+    .nav-sidebar:hover .nav-label {
+        opacity: 0.8;
+    }
+}
+
+/* 小屏幕优化 */
+@media (max-width: 480px) {
+    .nav-sidebar {
+        right: 15px;
+        bottom: 15px;
+        width: 50px;
+        height: 50px;
+        border-radius: 25px;
+    }
+    
+    .nav-sidebar::before {
+        font-size: 20px;
+    }
+    
+    .nav-sidebar.expanded,
+    .nav-sidebar:hover {
+        width: calc(100vw - 30px);
+        max-width: 260px;
+        max-height: 60vh;
+        padding: 15px;
+    }
+    
+    .nav-item {
+        padding: 10px 8px;
+        min-height: 40px;
+    }
+    
+    .nav-label {
+        font-size: 0.75rem;
+    }
+    
+    .nav-title {
+        font-size: 0.6rem;
+        margin-bottom: 6px;
+    }
+}
+
+/* 横屏模式优化 */
+@media (max-height: 500px) and (orientation: landscape) {
+    .nav-sidebar {
+        bottom: 10px;
+        right: 10px;
+        max-height: calc(100vh - 40px);
+    }
+    
+    .nav-sidebar.expanded,
+    .nav-sidebar:hover {
+        max-height: calc(100vh - 20px);
+        overflow-y: auto;
+    }
+    
+    .nav-group {
+        margin-bottom: 15px;
+    }
+    
+    .nav-item {
+        padding: 8px;
+        min-height: 36px;
+    }
+}

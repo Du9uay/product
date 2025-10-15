@@ -1,0 +1,16 @@
+{
+  "currentState": "initialized",
+  "stateHistory": [
+    {
+      "from": "initial",
+      "command": "init",
+      "timestamp": "2025-09-22T09:32:09.928Z",
+      "args": [
+        {
+          "workingDirectory": "/Users/xiaoqi/Documents/Dev/Project/2025_09_20_产品手册/test/lanyard"
+        }
+      ]
+    }
+  ],
+  "lastUpdated": "2025-09-22T09:32:09.944Z"
+}

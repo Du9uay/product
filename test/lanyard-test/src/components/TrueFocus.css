@@ -1,0 +1,156 @@
+.true-focus-container {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: radial-gradient(circle at 50% 50%, rgba(139, 92, 246, 0.1) 0%, transparent 50%),
+              linear-gradient(180deg, #0a0a0f 0%, #1a1a2e 100%);
+  transition: opacity 0.6s ease;
+}
+
+.true-focus-container.choosing {
+  animation: fadeOutScale 0.8s ease forwards;
+}
+
+.true-focus-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+}
+
+.choice-card {
+  position: relative;
+  padding: 40px 60px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 2px solid rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.choice-card::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(139, 92, 246, 0.4) 0%, transparent 70%);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+}
+
+.choice-card:hover {
+  transform: translateY(-5px) scale(1.05);
+  background: rgba(255, 255, 255, 0.06);
+  border-color: rgba(139, 92, 246, 0.5);
+  box-shadow: 0 20px 40px rgba(139, 92, 246, 0.2);
+}
+
+.choice-card:hover::before {
+  width: 300px;
+  height: 300px;
+}
+
+.choice-card.selected {
+  transform: scale(1.1);
+  background: rgba(139, 92, 246, 0.2);
+  border-color: rgba(139, 92, 246, 0.8);
+  animation: pulse 0.6s ease;
+}
+
+.choice-card.not-selected {
+  transform: scale(0.9);
+  opacity: 0.3;
+}
+
+.choice-content {
+  position: relative;
+  z-index: 1;
+}
+
+.choice-text {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #ffffff;
+  text-shadow: 0 2px 10px rgba(139, 92, 246, 0.3);
+  letter-spacing: 2px;
+  white-space: nowrap;
+}
+
+.divider {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.divider span {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.3);
+  text-transform: uppercase;
+  letter-spacing: 3px;
+  font-weight: 300;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0.7);
+  }
+  50% {
+    box-shadow: 0 0 0 30px rgba(139, 92, 246, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0);
+  }
+}
+
+@keyframes fadeOutScale {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+    filter: blur(0);
+  }
+  50% {
+    opacity: 0.5;
+    transform: scale(1.05);
+    filter: blur(2px);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(0.9);
+    filter: blur(10px);
+  }
+}
+  50% {
+    box-shadow: 0 0 0 30px rgba(139, 92, 246, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(139, 92, 246, 0);
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .true-focus-wrapper {
+    flex-direction: column;
+    gap: 30px;
+  }
+
+  .choice-card {
+    padding: 30px 40px;
+  }
+
+  .choice-text {
+    font-size: 1.8rem;
+  }
+
+  .divider {
+    transform: rotate(90deg);
+  }
+}

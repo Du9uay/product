@@ -1,0 +1,159 @@
+/* 迷茫标题页样式 */
+.confusion-title-section {
+  background: radial-gradient(circle at 30% 30%, rgba(239, 68, 68, 0.2) 0%, transparent 50%),
+              var(--dark);
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.confusion-title-content {
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.confusion-title-content h2 {
+  font-size: clamp(3rem, 6vw, 5rem);
+  margin-bottom: 30px;
+  background: linear-gradient(135deg, #EF4444, #F59E0B);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.confusion-title-content p {
+  font-size: 1.5rem;
+  color: var(--text-muted);
+  line-height: 1.8;
+}
+
+/* 迷茫描述框 */
+.confusion-description-box {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 20px;
+  border: 2px solid rgba(239, 68, 68, 0.3);
+  position: relative;
+}
+
+.confusion-description-box::before {
+  content: '';
+  position: absolute;
+  top: -2px;
+  left: -2px;
+  right: -2px;
+  bottom: -2px;
+  background: linear-gradient(135deg, rgba(239, 68, 68, 0.3), rgba(245, 158, 11, 0.3));
+  border-radius: 20px;
+  z-index: -1;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.confusion-description-box:hover::before {
+  opacity: 1;
+}
+
+.confusion-main-text {
+  font-size: 2rem !important;
+  font-weight: 700;
+  color: var(--text) !important;
+  line-height: 1.6 !important;
+  margin-bottom: 30px !important;
+  text-align: center;
+}
+
+.confusion-support-text {
+  font-size: 1.6rem !important;
+  font-weight: 600;
+  color: var(--text) !important;
+  line-height: 1.8 !important;
+  margin-bottom: 30px !important;
+  text-align: center;
+  background: linear-gradient(135deg, #8B5CF6, #EC4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.confusion-warning-text {
+  font-size: 1.4rem !important;
+  color: rgba(239, 68, 68, 0.9) !important;
+  line-height: 2 !important;
+  text-align: center;
+  font-style: italic;
+  padding: 20px;
+  background: rgba(239, 68, 68, 0.1);
+  border-left: 4px solid #EF4444;
+  border-radius: 8px;
+}
+
+/* 产品介绍标题页 */
+.product-title-section {
+  background: radial-gradient(circle at 50% 50%, rgba(59, 130, 246, 0.25) 0%, transparent 50%),
+              radial-gradient(circle at 80% 20%, rgba(139, 92, 246, 0.2) 0%, transparent 50%),
+              var(--dark);
+}
+
+/* 大一推广标题页 */
+.freshman-title-section {
+  background: radial-gradient(circle at 30% 70%, rgba(236, 72, 153, 0.25) 0%, transparent 50%),
+              radial-gradient(circle at 70% 30%, rgba(248, 113, 113, 0.2) 0%, transparent 50%),
+              var(--dark);
+}
+
+/* 大二推广标题页 */
+.sophomore-title-section {
+  background: radial-gradient(circle at 60% 40%, rgba(34, 197, 94, 0.25) 0%, transparent 50%),
+              radial-gradient(circle at 20% 80%, rgba(16, 185, 129, 0.2) 0%, transparent 50%),
+              var(--dark);
+}
+
+/* 报名流程标题页 */
+.enrollment-title-section {
+  background: radial-gradient(circle at 40% 60%, rgba(251, 191, 36, 0.25) 0%, transparent 50%),
+              radial-gradient(circle at 70% 70%, rgba(245, 158, 11, 0.2) 0%, transparent 50%),
+              var(--dark);
+}
+
+/* 城市站点标题页 */
+.city-title-section {
+  background: radial-gradient(circle at 50% 30%, rgba(168, 85, 247, 0.25) 0%, transparent 50%),
+              radial-gradient(circle at 30% 60%, rgba(147, 51, 234, 0.2) 0%, transparent 50%),
+              var(--dark);
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .confusion-title-content h2 {
+    font-size: 2.5rem;
+  }
+
+  .confusion-title-content p {
+    font-size: 1.2rem;
+  }
+
+  .confusion-description-box {
+    padding: 30px 20px;
+  }
+
+  .confusion-main-text {
+    font-size: 1.6rem !important;
+  }
+
+  .confusion-support-text {
+    font-size: 1.3rem !important;
+  }
+
+  .confusion-warning-text {
+    font-size: 1.2rem !important;
+    padding: 15px;
+  }
+}
