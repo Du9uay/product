@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { getAssetPath } from '../../utils/getAssetPath';
 
 const CitySection = ({ id, type, onImageClick }) => {
   const [selectedCity, setSelectedCity] = useState('');
@@ -78,13 +79,13 @@ const CitySection = ({ id, type, onImageClick }) => {
         <div className="pain-point-right slide-in-right" ref={rightRef}>
           <div className="pain-point-images">
             <div className="pain-point-image" onClick={() => handleImageClick('/images/免费就业规划1.png')}>
-              <img src="/images/免费就业规划1.png" alt="免费就业规划" />
+              <img src={getAssetPath("/images/免费就业规划1.png")} alt="免费就业规划" />
             </div>
             <div className="pain-point-image" onClick={() => handleImageClick('/images/专业的就业特性.png')}>
-              <img src="/images/专业的就业特性.png" alt="专业的就业特性" />
+              <img src={getAssetPath("/images/专业的就业特性.png")} alt="专业的就业特性" />
             </div>
             <div className="pain-point-image" onClick={() => handleImageClick('/images/为学生免费提供技能拓展、项目经验储备的相关建议.png')}>
-              <img src="/images/为学生免费提供技能拓展、项目经验储备的相关建议.png" alt="技能拓展建议" />
+              <img src={getAssetPath("/images/为学生免费提供技能拓展、项目经验储备的相关建议.png")} alt="技能拓展建议" />
             </div>
           </div>
         </div>
@@ -143,7 +144,7 @@ const CitySection = ({ id, type, onImageClick }) => {
         <div className="pain-point-right slide-in-right" ref={rightRef}>
           <div className="pain-point-images">
             <div className="pain-point-image" onClick={() => handleImageClick('/images/专业点评.png')}>
-              <img src="/images/专业点评.png" alt="专业点评" />
+              <img src={getAssetPath("/images/专业点评.png")} alt="专业点评" />
             </div>
           </div>
         </div>
@@ -169,7 +170,7 @@ const CitySection = ({ id, type, onImageClick }) => {
         <div className="pain-point-right slide-in-right" ref={rightRef}>
           <div className="pain-point-images">
             <div className="pain-point-image" onClick={() => handleImageClick('/images/推荐理由.png')}>
-              <img src="/images/推荐理由.png" alt="推荐理由" />
+              <img src={getAssetPath("/images/推荐理由.png")} alt="推荐理由" />
             </div>
           </div>
         </div>

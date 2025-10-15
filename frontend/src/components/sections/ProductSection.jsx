@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import { getAssetPath } from '../../utils/getAssetPath';
 import ImagePreview from '../ImagePreview';
 import './ProductSection.css';
 
@@ -84,7 +85,7 @@ const ProductSection = ({ type, onImageClick }) => {
           {/* 本地视频播放 */}
           <div className="product-video" style={{width: '100%', height: '400px', position: 'relative', borderRadius: '12px', overflow: 'hidden', background: '#000'}}>
             <video
-              src="/央视关注苏州高校搭建_20251015093112.mp4"
+              src={getAssetPath("/央视关注苏州高校搭建_20251015093112.mp4")}
               controls
               style={{width: '100%', height: '100%', objectFit: 'contain'}}
               title="产品介绍视频"
@@ -118,10 +119,10 @@ const ProductSection = ({ type, onImageClick }) => {
         <div className="product-right slide-in-right" ref={rightRef}>
           <div className="product-images">
             <div className="product-image" onClick={() => handleImageClick('/images/国内企业.png')}>
-              <img src="/images/国内企业.png" alt="国内企业" />
+              <img src={getAssetPath("/images/国内企业.png")} alt="国内企业" />
             </div>
             <div className="product-image" onClick={() => handleImageClick('/images/海外企业.png')}>
-              <img src="/images/海外企业.png" alt="海外企业" />
+              <img src={getAssetPath("/images/海外企业.png")} alt="海外企业" />
             </div>
           </div>
         </div>
@@ -151,7 +152,7 @@ const ProductSection = ({ type, onImageClick }) => {
           </p>
           {/* 插入岗位资源图片 */}
           <div className="product-inline-image" style={{marginTop: '20px', marginBottom: '20px'}} onClick={() => handleImageClick('/images/岗位资源.png')}>
-            <img src="/images/岗位资源.png" alt="岗位资源" style={{width: '100%', maxWidth: '500px', cursor: 'pointer', borderRadius: '8px'}} />
+            <img src={getAssetPath("/images/岗位资源.png")} alt="岗位资源" style={{width: '100%', maxWidth: '500px', cursor: 'pointer', borderRadius: '8px'}} />
           </div>
           <p className="product-subdesc">
             每个"企业订单班"都是<span className="highlight-box">对标40多个岗位</span>，有很多都是学生所学专业去不了的岗位，右侧为我们“订单班”往届学员的就业榜单
@@ -160,16 +161,16 @@ const ProductSection = ({ type, onImageClick }) => {
         <div className="product-right slide-in-right" ref={rightRef}>
           <div className="product-images">
             <div className="product-image" onClick={() => handleImageClick('/images/智能开发-就业榜.png')}>
-              <img src="/images/智能开发-就业榜.png" alt="智能开发就业榜" />
+              <img src={getAssetPath("/images/智能开发-就业榜.png")} alt="智能开发就业榜" />
             </div>
             <div className="product-image" onClick={() => handleImageClick('/images/视觉设计-就业榜.png')}>
-              <img src="/images/视觉设计-就业榜.png" alt="视觉设计就业榜" />
+              <img src={getAssetPath("/images/视觉设计-就业榜.png")} alt="视觉设计就业榜" />
             </div>
             <div className="product-image" onClick={() => handleImageClick('/images/智能制造-就业榜.png')}>
-              <img src="/images/智能制造-就业榜.png" alt="智能制造就业榜" />
+              <img src={getAssetPath("/images/智能制造-就业榜.png")} alt="智能制造就业榜" />
             </div>
             <div className="product-image" onClick={() => handleImageClick('/images/财经商贸-就业榜.png')}>
-              <img src="/images/财经商贸-就业榜.png" alt="财经商贸就业榜" />
+              <img src={getAssetPath("/images/财经商贸-就业榜.png")} alt="财经商贸就业榜" />
             </div>
           </div>
         </div>
@@ -208,7 +209,7 @@ const ProductSection = ({ type, onImageClick }) => {
             </div>
             {/* 右侧图片 */}
             <div className="product-inline-image" style={{flex: '0 0 45%'}} onClick={() => handleImageClick('/images/企业生产流程.png')}>
-              <img src="/images/企业生产流程.png" alt="企业生产流程" style={{width: '100%', cursor: 'pointer', borderRadius: '8px'}} />
+              <img src={getAssetPath("/images/企业生产流程.png")} alt="企业生产流程" style={{width: '100%', cursor: 'pointer', borderRadius: '8px'}} />
             </div>
           </div>
 
@@ -216,7 +217,7 @@ const ProductSection = ({ type, onImageClick }) => {
           <div style={{clear: 'both', marginTop: '40px', display: 'flex', alignItems: 'center', gap: '30px'}}>
             {/* 左侧图片 */}
             <div className="product-inline-image" style={{flex: '0 0 45%'}} onClick={() => handleImageClick('/images/重点技术及概念.png')}>
-              <img src="/images/重点技术及概念.png" alt="重点技术及概念" style={{width: '100%', cursor: 'pointer', borderRadius: '8px'}} />
+              <img src={getAssetPath("/images/重点技术及概念.png")} alt="重点技术及概念" style={{width: '100%', cursor: 'pointer', borderRadius: '8px'}} />
             </div>
             {/* 右侧文字 */}
             <div style={{flex: '1'}}>
@@ -260,7 +261,7 @@ const ProductSection = ({ type, onImageClick }) => {
         <div className="product-right slide-in-right" ref={rightRef}>
           <div className="product-images">
             <div className="product-image" onClick={() => handleImageClick('/images/agent_2.png')}>
-              <img src="/images/agent_2.png" alt="AI工作流程" />
+              <img src={getAssetPath("/images/agent_2.png")} alt="AI工作流程" />
             </div>
           </div>
         </div>
@@ -292,7 +293,7 @@ const ProductSection = ({ type, onImageClick }) => {
         <div className="product-right slide-in-right" ref={rightRef}>
           <div className="product-images">
             <div className="product-image" onClick={() => handleImageClick('/images/工作门道.png')}>
-              <img src="/images/工作门道.png" alt="工作门道" />
+              <img src={getAssetPath("/images/工作门道.png")} alt="工作门道" />
             </div>
           </div>
         </div>
@@ -328,16 +329,16 @@ const ProductSection = ({ type, onImageClick }) => {
         <div className="product-right slide-in-right" ref={rightRef}>
           <div className="product-images">
             <div className="product-image" onClick={() => handleImageClick('/images/学生有能力写好简历吗？1.png')}>
-              <img src="/images/学生有能力写好简历吗？1.png" alt="定制简历" />
+              <img src={getAssetPath("/images/学生有能力写好简历吗？1.png")} alt="定制简历" />
             </div>
             <div className="product-image" onClick={() => handleImageClick('/images/学生有能力写好简历吗？2.png')}>
-              <img src="/images/学生有能力写好简历吗？2.png" alt="项目案例" />
+              <img src={getAssetPath("/images/学生有能力写好简历吗？2.png")} alt="项目案例" />
             </div>
             <div className="product-image" onClick={() => handleImageClick('/images/学生有能力写好简历吗？3.png')}>
-              <img src="/images/学生有能力写好简历吗？3.png" alt="作品集模板" />
+              <img src={getAssetPath("/images/学生有能力写好简历吗？3.png")} alt="作品集模板" />
             </div>
             <div className="product-image" onClick={() => handleImageClick('/images/学生有能力写好简历吗？4.png')}>
-              <img src="/images/学生有能力写好简历吗？4.png" alt="作品展示" />
+              <img src={getAssetPath("/images/学生有能力写好简历吗？4.png")} alt="作品展示" />
             </div>
           </div>
         </div>
@@ -373,10 +374,10 @@ const ProductSection = ({ type, onImageClick }) => {
         <div className="product-right slide-in-right" ref={rightRef}>
           <div className="product-images">
             <div className="product-image" onClick={() => handleImageClick('/images/学校里会教怎么用AI做项目吗？1.png')}>
-              <img src="/images/学校里会教怎么用AI做项目吗？1.png" alt="AI工具应用" />
+              <img src={getAssetPath("/images/学校里会教怎么用AI做项目吗？1.png")} alt="AI工具应用" />
             </div>
             <div className="product-image" onClick={() => handleImageClick('/images/学校里会教怎么用AI做项目吗？2.png')}>
-              <img src="/images/学校里会教怎么用AI做项目吗？2.png" alt="Agent智能体" />
+              <img src={getAssetPath("/images/学校里会教怎么用AI做项目吗？2.png")} alt="Agent智能体" />
             </div>
           </div>
         </div>
@@ -409,10 +410,10 @@ const ProductSection = ({ type, onImageClick }) => {
         <div className="product-right slide-in-right" ref={rightRef}>
           <div className="product-images">
             <div className="product-image" onClick={() => handleImageClick('/images/学生能有清晰的就业规划吗？.png')}>
-              <img src="/images/学生能有清晰的就业规划吗？.png" alt="就业规划" />
+              <img src={getAssetPath("/images/学生能有清晰的就业规划吗？.png")} alt="就业规划" />
             </div>
             <div className="product-image" onClick={() => handleImageClick('/images/学生能有清晰的就业规划吗？2.png')}>
-              <img src="/images/学生能有清晰的就业规划吗？2.png" alt="求职策略" />
+              <img src={getAssetPath("/images/学生能有清晰的就业规划吗？2.png")} alt="求职策略" />
             </div>
           </div>
         </div>
@@ -448,7 +449,7 @@ const ProductSection = ({ type, onImageClick }) => {
         <div className="product-right slide-in-right" ref={rightRef}>
           <div className="product-images">
             <div className="product-image" onClick={() => handleImageClick('/images/现在的大多数学生都不知道如何参加面试.png')}>
-              <img src="/images/现在的大多数学生都不知道如何参加面试.png" alt="面试演练" />
+              <img src={getAssetPath("/images/现在的大多数学生都不知道如何参加面试.png")} alt="面试演练" />
             </div>
           </div>
         </div>
@@ -478,7 +479,7 @@ const ProductSection = ({ type, onImageClick }) => {
         <div className="product-right slide-in-right" ref={rightRef}>
           <div className="product-images">
             <div className="product-image" onClick={() => handleImageClick('/images/跟着\u201c老板\u201d提前进入社会.png')}>
-              <img src="/images/跟着老板提前进入社会.png" alt="企业高管交流会" />
+              <img src={getAssetPath("/images/跟着老板提前进入社会.png")} alt="企业高管交流会" />
             </div>
           </div>
         </div>
@@ -514,13 +515,13 @@ const ProductSection = ({ type, onImageClick }) => {
         <div className="product-right slide-in-right" ref={rightRef}>
           <div className="product-images">
             <div className="product-image" onClick={() => handleImageClick('/images/专属大专生的优质岗位资源，竞争性不激烈1.png')}>
-              <img src="/images/专属大专生的优质岗位资源，竞争性不激烈1.png" alt="优质岗位资源1" />
+              <img src={getAssetPath("/images/专属大专生的优质岗位资源，竞争性不激烈1.png")} alt="优质岗位资源1" />
             </div>
             <div className="product-image" onClick={() => handleImageClick('/images/专属大专生的优质岗位资源，竞争性不激烈2.png')}>
-              <img src="/images/专属大专生的优质岗位资源，竞争性不激烈2.png" alt="优质岗位资源2" />
+              <img src={getAssetPath("/images/专属大专生的优质岗位资源，竞争性不激烈2.png")} alt="优质岗位资源2" />
             </div>
             <div className="product-image" onClick={() => handleImageClick('/images/专属大专生的优质岗位资源，竞争性不激烈3.png')}>
-              <img src="/images/专属大专生的优质岗位资源，竞争性不激烈3.png" alt="优质岗位资源3" />
+              <img src={getAssetPath("/images/专属大专生的优质岗位资源，竞争性不激烈3.png")} alt="优质岗位资源3" />
             </div>
           </div>
         </div>
@@ -556,7 +557,7 @@ const ProductSection = ({ type, onImageClick }) => {
         <div className="product-right slide-in-right" ref={rightRef}>
           <div className="product-images">
             <div className="product-image" onClick={() => handleImageClick('/images/现在很多学生出现问题都不知道问谁.png')}>
-              <img src="/images/现在很多学生出现问题都不知道问谁.png" alt="专家支持中心" />
+              <img src={getAssetPath("/images/现在很多学生出现问题都不知道问谁.png")} alt="专家支持中心" />
             </div>
           </div>
         </div>

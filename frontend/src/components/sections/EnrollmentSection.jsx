@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { getAssetPath } from '../../utils/getAssetPath';
 
 const EnrollmentSection = ({ id, type, onImageClick }) => {
   const [selectedPayment, setSelectedPayment] = useState('');
@@ -95,7 +96,7 @@ const EnrollmentSection = ({ id, type, onImageClick }) => {
         <div className="pain-point-right slide-in-right" ref={rightRef}>
           <div className="pain-point-images">
             <div className="pain-point-image" onClick={() => handleImageClick('/images/报名_3.png')}>
-              <img src="/images/报名_3.png" alt="报名系统" />
+              <img src={getAssetPath("/images/报名_3.png")} alt="报名系统" />
             </div>
           </div>
         </div>
@@ -272,7 +273,7 @@ const EnrollmentSection = ({ id, type, onImageClick }) => {
           <div className="cases-grid">
             <div className="case-item" onClick={() => handleImageClick('/images/专业点评.png')}>
               <div className="case-image">
-                <img src="/images/专业点评.png" alt="成功案例1" loading="lazy" />
+                <img src={getAssetPath("/images/专业点评.png")} alt="成功案例1" loading="lazy" />
               </div>
               <div className="case-info">
                 <h4>小王 · 计算机应用专业</h4>
@@ -288,7 +289,7 @@ const EnrollmentSection = ({ id, type, onImageClick }) => {
 
             <div className="case-item" onClick={() => handleImageClick('/images/推荐理由.png')}>
               <div className="case-image">
-                <img src="/images/推荐理由.png" alt="成功案例2" loading="lazy" />
+                <img src={getAssetPath("/images/推荐理由.png")} alt="成功案例2" loading="lazy" />
               </div>
               <div className="case-info">
                 <h4>小李 · 市场营销专业</h4>
@@ -304,7 +305,7 @@ const EnrollmentSection = ({ id, type, onImageClick }) => {
 
             <div className="case-item" onClick={() => handleImageClick('/images/作品集.png')}>
               <div className="case-image">
-                <img src="/images/作品集.png" alt="成功案例3" loading="lazy" />
+                <img src={getAssetPath("/images/作品集.png")} alt="成功案例3" loading="lazy" />
               </div>
               <div className="case-info">
                 <h4>小张 · 电子商务专业</h4>

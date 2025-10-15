@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { getAssetPath } from '../../utils/getAssetPath';
 
 const SophomoreSection = ({ id, type, onImageClick }) => {
   const leftRef = useRef(null);

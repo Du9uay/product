@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from 'react';
+import { getAssetPath } from '../../utils/getAssetPath';
 import './ConfusionSection.css';
 
 const ConfusionSection = ({ title, subtitle, description }) => {
