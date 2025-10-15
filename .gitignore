@@ -33,10 +33,11 @@ Thumbs.db
 .env.test.local
 .env.production.local
 
-# 大文件 - 超过 GitHub 限制
-frontend/public/央视关注苏州高校搭建_20251015093112.mp4
+# 大文件 - 超过 GitHub 限制 (PPT文件使用 Git LFS 管理)
 doc/产品手册/*.pptx
 doc/产品手册/*.ppt
+
+# 视频文件现在通过 Git LFS 管理,不再忽略
 
 # 临时文件
 *.tmp
