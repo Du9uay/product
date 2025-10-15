@@ -6,6 +6,7 @@ export default defineConfig({
   plugins: [react()],
   base: '/product/',  // GitHub Pages 部署路径
   server: {
-    port: 5555
+    port: 5555,
+    host: '0.0.0.0'  // 允许局域网访问
   }
 })

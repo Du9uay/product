@@ -24,6 +24,44 @@ function App() {
   useScrollAnimations();
   const [modalImage, setModalImage] = useState(null);
 
+  // 初始化历史管理和禁用自动滚动恢复
+  React.useEffect(() => {
+    // 检测是否为移动端
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+
+    // 移动端：禁用浏览器的自动滚动恢复
+    if (isMobile && 'scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+      console.log('移动端检测：禁用浏览器自动滚动恢复');
+    }
+
+    // 页面首次加载时，添加一个初始历史状态
+    if (!window.history.state) {
+      window.history.replaceState({ page: 'initial' }, '');
+    }
+
+    // 监听浏览器返回/前进事件
+    const handlePopState = (e) => {
+      // 如果有图片预览打开，关闭它
+      if (modalImage) {
+        setModalImage(null);
+        // 阻止默认行为，保持在当前页面
+        window.history.pushState({ page: 'current' }, '');
+      }
+      // 如果没有图片预览，让浏览器自然处理（但不恢复滚动位置）
+    };
+
+    window.addEventListener('popstate', handlePopState);
+
+    return () => {
+      window.removeEventListener('popstate', handlePopState);
+      // 恢复默认滚动恢复行为
+      if (isMobile && 'scrollRestoration' in window.history) {
+        window.history.scrollRestoration = 'auto';
+      }
+    };
+  }, [modalImage]);
+
   // 滚动到指定section
   const scrollToSection = (sectionRef) => {
     if (sectionRef) {

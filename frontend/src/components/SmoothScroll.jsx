@@ -5,7 +5,33 @@ function SmoothScroll({ children }) {
   const lenisRef = useRef();
 
   useEffect(() => {
-    // 创建Lenis实例
+    // 检测是否为移动端
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+
+    // 如果是移动端，不启用Lenis平滑滚动
+    if (isMobile) {
+      console.log('移动端检测：禁用Lenis平滑滚动，使用原生滚动');
+
+      // 为移动端提供简单的滚动方法
+      window.lenis = null;
+      window.scrollToSection = (target, options = {}) => {
+        const element = typeof target === 'string' ? document.querySelector(target) : target;
+        if (element) {
+          element.scrollIntoView({
+            behavior: 'smooth',
+            block: 'start'
+          });
+        }
+      };
+
+      return () => {
+        delete window.lenis;
+        delete window.scrollToSection;
+      };
+    }
+
+    // PC端：创建Lenis实例
+    console.log('PC端检测：启用Lenis平滑滚动');
     const lenis = new Lenis({
       duration: 1.2,
       easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),

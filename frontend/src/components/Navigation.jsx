@@ -147,9 +147,9 @@ const Navigation = ({ onSectionClick }) => {
   const handleNavClick = (sectionId) => {
     const element = document.getElementById(sectionId) || document.querySelector(`.${sectionId}`);
     if (element) {
-      // 使用Lenis的scrollTo方法
-      if (window.lenis) {
-        window.lenis.scrollTo(element, {
+      // 使用全局的scrollToSection方法（PC端用Lenis，移动端用原生）
+      if (window.scrollToSection) {
+        window.scrollToSection(element, {
           duration: 1.2,
           offset: 0
         });

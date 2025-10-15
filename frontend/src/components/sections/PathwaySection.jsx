@@ -11,60 +11,77 @@ function PathwaySection() {
   const centerRef = useRef(null);
 
   useEffect(() => {
+    // 检测是否为移动端
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+
     let ctx = gsap.context(() => {
-      // 左侧动画
-      if (leftRef.current) {
-        gsap.fromTo(leftRef.current,
-          { x: -100, opacity: 0 },
-          {
-            x: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: leftRef.current,
-              start: "top 80%",
-              toggleActions: "play none none reverse"
+      // 移动端：禁用ScrollTrigger动画，直接显示内容
+      if (isMobile) {
+        if (leftRef.current) {
+          gsap.set(leftRef.current, { x: 0, opacity: 1 });
+        }
+        if (rightRef.current) {
+          gsap.set(rightRef.current, { x: 0, opacity: 1 });
+        }
+        if (centerRef.current) {
+          gsap.set(centerRef.current, { y: 0, opacity: 1 });
+        }
+      } else {
+        // PC端：启用ScrollTrigger动画
+        // 左侧动画
+        if (leftRef.current) {
+          gsap.fromTo(leftRef.current,
+            { x: -100, opacity: 0 },
+            {
+              x: 0,
+              opacity: 1,
+              duration: 0.8,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: leftRef.current,
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+              }
             }
-          }
-        );
-      }
+          );
+        }
 
-      // 右侧动画
-      if (rightRef.current) {
-        gsap.fromTo(rightRef.current,
-          { x: 100, opacity: 0 },
-          {
-            x: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: rightRef.current,
-              start: "top 80%",
-              toggleActions: "play none none reverse"
+        // 右侧动画
+        if (rightRef.current) {
+          gsap.fromTo(rightRef.current,
+            { x: 100, opacity: 0 },
+            {
+              x: 0,
+              opacity: 1,
+              duration: 0.8,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: rightRef.current,
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+              }
             }
-          }
-        );
-      }
+          );
+        }
 
-      // 中间内容动画
-      if (centerRef.current) {
-        gsap.fromTo(centerRef.current,
-          { y: 50, opacity: 0 },
-          {
-            y: 0,
-            opacity: 1,
-            duration: 0.8,
-            delay: 0.3,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: centerRef.current,
-              start: "top 80%",
-              toggleActions: "play none none reverse"
+        // 中间内容动画
+        if (centerRef.current) {
+          gsap.fromTo(centerRef.current,
+            { y: 50, opacity: 0 },
+            {
+              y: 0,
+              opacity: 1,
+              duration: 0.8,
+              delay: 0.3,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: centerRef.current,
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+              }
             }
-          }
-        );
+          );
+        }
       }
     });
 

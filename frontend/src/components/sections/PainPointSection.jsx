@@ -26,47 +26,61 @@ function PainPointSection({ id, number, title, mainText, description, solution, 
   };
 
   useEffect(() => {
-    let ctx = gsap.context(() => {
-      // 左侧内容动画
-      if (leftRef.current) {
-        gsap.fromTo(leftRef.current,
-          {
-            x: -50,
-            opacity: 0
-          },
-          {
-            x: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: leftRef.current,
-              start: "top 80%",
-              toggleActions: "play none none reverse"
-            }
-          }
-        );
-      }
+    // 检测是否为移动端
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
 
-      // 右侧内容动画
-      if (rightRef.current) {
-        gsap.fromTo(rightRef.current,
-          {
-            x: 50,
-            opacity: 0
-          },
-          {
-            x: 0,
-            opacity: 1,
-            duration: 0.8,
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: rightRef.current,
-              start: "top 80%",
-              toggleActions: "play none none reverse"
+    let ctx = gsap.context(() => {
+      // 移动端：禁用ScrollTrigger动画，直接显示内容
+      if (isMobile) {
+        if (leftRef.current) {
+          gsap.set(leftRef.current, { x: 0, opacity: 1 });
+        }
+        if (rightRef.current) {
+          gsap.set(rightRef.current, { x: 0, opacity: 1 });
+        }
+      } else {
+        // PC端：启用ScrollTrigger动画
+        // 左侧内容动画
+        if (leftRef.current) {
+          gsap.fromTo(leftRef.current,
+            {
+              x: -50,
+              opacity: 0
+            },
+            {
+              x: 0,
+              opacity: 1,
+              duration: 0.8,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: leftRef.current,
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+              }
             }
-          }
-        );
+          );
+        }
+
+        // 右侧内容动画
+        if (rightRef.current) {
+          gsap.fromTo(rightRef.current,
+            {
+              x: 50,
+              opacity: 0
+            },
+            {
+              x: 0,
+              opacity: 1,
+              duration: 0.8,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: rightRef.current,
+                start: "top 80%",
+                toggleActions: "play none none reverse"
+              }
+            }
+          );
+        }
       }
 
       // 如果有图片，并且不是使用三图布局的section，添加拖拽功能
@@ -227,7 +241,7 @@ function PainPointSection({ id, number, title, mainText, description, solution, 
             {renderDescription()}
           </p>
           {solution && (
-            <p className="pain-point-subdesc" style={{marginTop: '20px'}}>
+            <p className="pain-point-subdesc" style={{marginTop: '8px'}}>
               {renderSolution()}
             </p>
           )}

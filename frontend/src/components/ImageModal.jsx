@@ -2,6 +2,9 @@ import React, { useEffect } from 'react';
 
 const ImageModal = ({ src, onClose }) => {
   useEffect(() => {
+    // 打开图片预览时，添加一个历史记录状态
+    window.history.pushState({ imageModal: true }, '');
+
     const handleEscape = (e) => {
       if (e.key === 'Escape') {
         onClose();

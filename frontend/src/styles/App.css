@@ -44,6 +44,8 @@ body {
     /* 移除所有方向的内边距，避免移动端缝隙 */
     padding: 0;
     margin: 0;
+    /* 设置最小宽度，确保移动端也显示完整PC端布局 */
+    min-width: 1440px;
 }
 
 /* ============================================
@@ -55,12 +57,12 @@ body {
 }
 
 .section {
-    min-height: 100vh;
+    min-height: 65vh;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 60px 20px;
+    padding: 20px 20px;
 }
 
 /* ============================================
@@ -171,7 +173,7 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
     letter-spacing: -2px;
     animation: gradient-shift 5s ease infinite;
     background-size: 200% 200%;
@@ -185,17 +187,17 @@ body {
 .hero-subtitle {
     font-size: clamp(1.5rem, 4vw, 2.5rem);
     color: var(--text);
-    margin-bottom: 30px;
+    margin-bottom: 12px;
     font-weight: 300;
     opacity: 0.9;
 }
 
 .hero-tags {
     display: flex;
-    gap: 20px;
+    gap: 12px;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 40px;
+    margin-top: 15px;
 }
 
 .tag {
@@ -228,7 +230,7 @@ body {
 
 .section-title {
     font-size: clamp(2.5rem, 5vw, 4rem);
-    margin-bottom: 50px;
+    margin-bottom: 15px;
     text-align: center;
     position: relative;
     display: inline-block;
@@ -375,7 +377,7 @@ body {
 
 .confusion-title-content h2 {
     font-size: clamp(3rem, 6vw, 5rem);
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     background: linear-gradient(135deg, #EF4444, #F59E0B);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -396,7 +398,7 @@ body {
 .pain-point-content {
     display: flex;
     align-items: center;
-    gap: 80px;
+    gap: 35px;
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 40px;
@@ -416,21 +418,21 @@ body {
     justify-content: center;
     font-size: 1.8rem;
     font-weight: bold;
-    margin-bottom: 20px;
+    margin-bottom: 8px;
 }
 
 .pain-point-title {
     font-size: 3rem;
     font-weight: 800;
-    margin-bottom: 30px;
+    margin-bottom: 10px;
     line-height: 1.2;
 }
 
 .pain-point-description {
     font-size: 1.5rem;
-    line-height: 1.8;
+    line-height: 1.5;
     color: var(--text);
-    margin-bottom: 20px;
+    margin-bottom: 8px;
 }
 
 .pain-point-subdesc {
@@ -802,8 +804,10 @@ body {
 
 
 /* ============================================
-   响应式设计
+   响应式设计 - 已禁用，移动端也显示PC端布局
    ============================================ */
+/* 注释掉响应式布局，保持所有设备使用相同的PC端布局 */
+/*
 @media (max-width: 968px) {
     .pain-point-content {
         flex-direction: column;
@@ -826,19 +830,6 @@ body {
 }
 
 @media (max-width: 768px) {
-    /* 移动端确保无缝隙 */
-    html, body {
-        padding: 0 !important;
-        margin: 0 !important;
-        width: 100% !important;
-        overflow-x: hidden !important;
-    }
-
-    #root {
-        width: 100% !important;
-        overflow-x: hidden !important;
-    }
-
     .cards-grid {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -851,8 +842,8 @@ body {
     .section {
         padding: 40px 15px;
     }
-
 }
+*/
 
 /* ============================================
    动画效果

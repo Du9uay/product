@@ -6,12 +6,12 @@
 .product-content {
   display: flex;
   align-items: center;
-  gap: 80px;
+  gap: 35px;
   max-width: 1400px;
   margin: 0 auto;
-  padding: 80px 40px;
+  padding: 25px 40px;
   position: relative;
-  min-height: 100vh;
+  min-height: 65vh;
 }
 
 .product-left {
@@ -38,7 +38,7 @@
 .product-title {
   font-size: 3rem;
   font-weight: 800;
-  margin-bottom: 30px;
+  margin-bottom: 10px;
   line-height: 1.2;
   color: var(--text);
   white-space: nowrap; /* 防止标题换行 */
@@ -46,14 +46,14 @@
 
 .product-description {
   font-size: 1.5rem;
-  line-height: 1.8;
+  line-height: 1.5;
   color: var(--text);
-  margin-bottom: 20px;
+  margin-bottom: 8px;
 }
 
 .product-subdesc {
   font-size: 1.2rem;
-  line-height: 1.8;
+  line-height: 1.5;
   color: var(--text-muted);
 }
 
@@ -100,8 +100,9 @@
 .product-content-vertical {
   flex-direction: column;
   align-items: center;
-  gap: 10px; /* 缩小间距到10px */
-  padding: 60px 40px;
+  gap: 10px; /* 文本和图片之间的间距 */
+  padding: 25px 40px;
+  min-height: auto; /* 不设置最小高度 */
 }
 
 .product-content-vertical .product-left {
@@ -390,7 +391,9 @@
   }
 }
 
-/* 响应式设计 */
+/* 响应式设计 - 已禁用，移动端也显示PC端布局 */
+/* 注释掉响应式布局，保持所有设备使用相同的PC端布局 */
+/*
 @media (max-width: 968px) {
   .product-content {
     flex-direction: column;
@@ -405,7 +408,7 @@
 
   .product-title {
     font-size: 2.5rem;
-    white-space: normal; /* 移动端允许换行 */
+    white-space: normal;
   }
 
   .product-number {
@@ -430,3 +433,4 @@
     font-size: 1.2rem;
   }
 }
+*/

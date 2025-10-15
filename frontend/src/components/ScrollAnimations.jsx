@@ -6,6 +6,17 @@ gsap.registerPlugin(ScrollTrigger);
 
 export const useScrollAnimations = () => {
   useEffect(() => {
+    // 检测是否为移动端
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent) || window.innerWidth <= 768;
+
+    // 如果是移动端，禁用ScrollTrigger动画以避免滚动冲突
+    if (isMobile) {
+      console.log('移动端检测：禁用GSAP ScrollTrigger动画');
+      return;
+    }
+
+    console.log('PC端检测：启用GSAP ScrollTrigger动画');
+
     // 等待DOM和Lenis初始化
     const timer = setTimeout(() => {
 
