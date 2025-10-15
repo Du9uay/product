@@ -82,10 +82,10 @@ const ProductSection = ({ type, onImageClick }) => {
           </p>
         </div>
         <div className="product-right slide-in-right" ref={rightRef}>
-          {/* 本地视频播放 */}
+          {/* 云端视频播放 */}
           <div className="product-video" style={{width: '100%', height: '400px', position: 'relative', borderRadius: '12px', overflow: 'hidden', background: '#000'}}>
             <video
-              src={getAssetPath("/央视关注苏州高校搭建_20251015093112.mp4")}
+              src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/video/%E5%A4%AE%E8%A7%86%E5%85%B3%E6%B3%A8%E8%8B%8F%E5%B7%9E%E9%AB%98%E6%A0%A1%E6%90%AD%E5%BB%BA.mp4"
               controls
               style={{width: '100%', height: '100%', objectFit: 'contain'}}
               title="产品介绍视频"
