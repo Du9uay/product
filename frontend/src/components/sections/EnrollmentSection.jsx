@@ -95,7 +95,7 @@ const EnrollmentSection = ({ id, type, onImageClick }) => {
         </div>
         <div className="pain-point-right slide-in-right" ref={rightRef}>
           <div className="pain-point-images">
-            <div className="pain-point-image" onClick={() => handleImageClick('/images/报名_3.png')}>
+            <div className="pain-point-image" onClick={() => handleImageClick(getAssetPath('/images/报名_3.png'))}>
               <img src={getAssetPath("/images/报名_3.png")} alt="报名系统" />
             </div>
           </div>
@@ -271,7 +271,7 @@ const EnrollmentSection = ({ id, type, onImageClick }) => {
           </div>
 
           <div className="cases-grid">
-            <div className="case-item" onClick={() => handleImageClick('/images/专业点评.png')}>
+            <div className="case-item" onClick={() => handleImageClick(getAssetPath('/images/专业点评.png'))}>
               <div className="case-image">
                 <img src={getAssetPath("/images/专业点评.png")} alt="成功案例1" loading="lazy" />
               </div>
@@ -287,7 +287,7 @@ const EnrollmentSection = ({ id, type, onImageClick }) => {
               </div>
             </div>
 
-            <div className="case-item" onClick={() => handleImageClick('/images/推荐理由.png')}>
+            <div className="case-item" onClick={() => handleImageClick(getAssetPath('/images/推荐理由.png'))}>
               <div className="case-image">
                 <img src={getAssetPath("/images/推荐理由.png")} alt="成功案例2" loading="lazy" />
               </div>
@@ -303,7 +303,7 @@ const EnrollmentSection = ({ id, type, onImageClick }) => {
               </div>
             </div>
 
-            <div className="case-item" onClick={() => handleImageClick('/images/作品集.png')}>
+            <div className="case-item" onClick={() => handleImageClick(getAssetPath('/images/作品集.png'))}>
               <div className="case-image">
                 <img src={getAssetPath("/images/作品集.png")} alt="成功案例3" loading="lazy" />
               </div>

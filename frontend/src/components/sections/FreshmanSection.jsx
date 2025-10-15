@@ -107,7 +107,7 @@ const FreshmanSection = ({ id, type, onImageClick }) => {
         </div>
         <div className="pain-point-right slide-in-right" ref={rightRef}>
           <div className="pain-point-images">
-            <div className="pain-point-image" onClick={() => handleImageClick('/images/三维柱状图.png')}>
+            <div className="pain-point-image" onClick={() => handleImageClick(getAssetPath('/images/三维柱状图.png'))}>
               <img src={getAssetPath("/images/三维柱状图.png")} alt="专升本对比图" />
             </div>
           </div>
