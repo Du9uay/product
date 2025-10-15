@@ -200,11 +200,11 @@ function PainPointSection({ id, number, title, mainText, description, solution, 
                 onClick={(e) => {
                   // 对于三图布局，直接点击即可；对于拖拽布局，需要检查是否在拖拽中
                   if (useThreeGrid || !e.target.closest('.pain-point-images').classList.contains('grabbing')) {
-                    handleImageClick(`/images/${img}`);
+                    handleImageClick(getAssetPath(`/images/${img}`));
                   }
                 }}
               >
-                <img src={`/images/${img}`} alt={`${title} ${index + 1}`} />
+                <img src={getAssetPath(`/images/${img}`)} alt={`${title} ${index + 1}`} />
               </div>
             ))}
           </div>
