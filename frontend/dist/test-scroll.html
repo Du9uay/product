@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=1440, initial-scale=0.26, minimum-scale=0.1, maximum-scale=2.0, user-scalable=yes">
+    <title>滚动测试</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            min-width: 1440px;
+            background: #0F0F0F;
+            color: white;
+            font-family: -apple-system, sans-serif;
+        }
+
+        .section {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            font-weight: bold;
+        }
+
+        .section:nth-child(1) { background: #1a1a2e; }
+        .section:nth-child(2) { background: #16213e; }
+        .section:nth-child(3) { background: #0f3460; }
+        .section:nth-child(4) { background: #533483; }
+        .section:nth-child(5) { background: #8b5cf6; }
+
+        .info {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(0,0,0,0.8);
+            padding: 20px;
+            border-radius: 10px;
+            font-size: 14px;
+            z-index: 1000;
+        }
+    </style>
+</head>
+<body>
+    <div class="info">
+        <div>滚动测试页面</div>
+        <div id="scroll-position">Y: 0</div>
+        <div id="touch-status">触摸: 无</div>
+    </div>
+
+    <div class="section">Section 1</div>
+    <div class="section">Section 2</div>
+    <div class="section">Section 3</div>
+    <div class="section">Section 4</div>
+    <div class="section">Section 5</div>
+
+    <script>
+        // 禁用浏览器自动滚动恢复
+        if ('scrollRestoration' in window.history) {
+            window.history.scrollRestoration = 'manual';
+            console.log('禁用浏览器自动滚动恢复');
+        }
+
+        // 监听滚动
+        let scrolling = false;
+        window.addEventListener('scroll', () => {
+            if (!scrolling) {
+                document.getElementById('scroll-position').textContent =
+                    `Y: ${Math.round(window.scrollY)}`;
+                scrolling = true;
+                setTimeout(() => { scrolling = false; }, 100);
+            }
+        });
+
+        // 监听触摸事件
+        let touchStartY = 0;
+        document.addEventListener('touchstart', (e) => {
+            touchStartY = e.touches[0].clientY;
+            document.getElementById('touch-status').textContent =
+                `触摸: 开始 ${Math.round(touchStartY)}`;
+        });
+
+        document.addEventListener('touchmove', (e) => {
+            const touchY = e.touches[0].clientY;
+            const delta = touchY - touchStartY;
+            document.getElementById('touch-status').textContent =
+                `触摸: 移动 ${Math.round(delta)}px`;
+        });
+
+        document.addEventListener('touchend', () => {
+            document.getElementById('touch-status').textContent = '触摸: 结束';
+        });
+
+        console.log('测试页面加载完成');
+        console.log('User Agent:', navigator.userAgent);
+    </script>
+</body>
+</html>
