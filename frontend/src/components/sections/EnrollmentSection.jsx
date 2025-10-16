@@ -96,8 +96,8 @@ const EnrollmentSection = ({ id, type, onImageClick }) => {
         </div>
         <div className="product-right slide-in-right" ref={rightRef}>
           <div className="product-images">
-            <div className="product-image" onClick={() => handleImageClick(getAssetPath('/images/报名_3.png'))}>
-              <img src={getAssetPath("/images/报名_3.png")} alt="报名系统" />
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAY6dmD.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAY6dmD.png" alt="报名系统" />
             </div>
           </div>
         </div>
