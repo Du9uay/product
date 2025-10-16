@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { getAssetPath } from '../../utils/getAssetPath';
+import './ProductSection.css';
 
 const CitySection = ({ id, type, onImageClick }) => {
   const [selectedCity, setSelectedCity] = useState('');
@@ -57,35 +58,35 @@ const CitySection = ({ id, type, onImageClick }) => {
 
   if (type === 'careerPlanning') {
     return (
-      <div className="pain-point-content">
-        <div className="pain-point-left slide-in-left" ref={leftRef}>
-          <h3 className="pain-point-title">免费就业规划</h3>
-          <p className="pain-point-description">
+      <div id="city-career-planning" className="product-content product-content-vertical">
+        <div className="product-left slide-in-left" ref={leftRef}>
+          <h3 className="product-title">免费就业规划</h3>
+          <p className="product-description">
             每个城市站点的指导老师帮助学生分析大学所学专业的就业情况，并提供专业建议
           </p>
-          <p className="pain-point-subdesc" style={{marginTop: '20px'}}>
+          <p className="product-subdesc" style={{marginTop: '20px'}}>
             根据SaaS系统为学生进行<span className="highlight-box">"专业点评"</span>：
           </p>
-          <p className="pain-point-subdesc" style={{marginTop: '15px'}}>
+          <p className="product-subdesc" style={{marginTop: '15px'}}>
             专业的学习特性<span className="highlight-box">（学习难易程度）</span>
           </p>
-          <p className="pain-point-subdesc" style={{marginTop: '15px'}}>
+          <p className="product-subdesc" style={{marginTop: '15px'}}>
             专业的就业特性<span className="highlight-box">（技能应用的广度范围/对口行业发展状况）</span>
           </p>
-          <p className="pain-point-subdesc" style={{marginTop: '15px'}}>
+          <p className="product-subdesc" style={{marginTop: '15px'}}>
             指导老师根据学生所学专业、兴趣爱好等自身特点，为学生免费提供<span className="highlight-box">技能拓展、项目经验储备</span>的相关建议
           </p>
         </div>
-        <div className="pain-point-right slide-in-right" ref={rightRef}>
-          <div className="pain-point-images">
-            <div className="pain-point-image" onClick={() => handleImageClick(getAssetPath('/images/免费就业规划1.png'))}>
-              <img src={getAssetPath("/images/免费就业规划1.png")} alt="免费就业规划" />
+        <div className="product-right slide-in-right" ref={rightRef}>
+          <div className="product-images">
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYaFAH.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYaFAH.png" alt="免费就业规划" />
             </div>
-            <div className="pain-point-image" onClick={() => handleImageClick(getAssetPath('/images/专业的就业特性.png'))}>
-              <img src={getAssetPath("/images/专业的就业特性.png")} alt="专业的就业特性" />
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYLruF.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYLruF.png" alt="专业的就业特性" />
             </div>
-            <div className="pain-point-image" onClick={() => handleImageClick(getAssetPath('/images/为学生免费提供技能拓展、项目经验储备的相关建议.png'))}>
-              <img src={getAssetPath("/images/为学生免费提供技能拓展、项目经验储备的相关建议.png")} alt="技能拓展建议" />
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYbMcy.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYbMcy.png" alt="技能拓展建议" />
             </div>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { getAssetPath } from '../../utils/getAssetPath';
+import './ProductSection.css';
 
 const EnrollmentSection = ({ id, type, onImageClick }) => {
   const [selectedPayment, setSelectedPayment] = useState('');
@@ -65,37 +66,37 @@ const EnrollmentSection = ({ id, type, onImageClick }) => {
 
   if (type === 'quota') {
     return (
-      <div id={id} className="pain-point-content">
-        <div className="pain-point-left slide-in-left" ref={leftRef}>
-          <h3 className="pain-point-title">名额规则介绍</h3>
-          <p className="pain-point-description">
+      <div id={id} className="product-content product-content-vertical">
+        <div className="product-left slide-in-left" ref={leftRef}>
+          <h3 className="product-title">名额规则介绍</h3>
+          <p className="product-description">
             因为企业<span className="highlight-box">专家资源有限</span>
           </p>
-          <p className="pain-point-subdesc">
+          <p className="product-subdesc">
             12个"企业订单班"，一届只能在全省招2400人，平均每班只能招生200人
           </p>
-          <p className="pain-point-subdesc" style={{marginTop: '20px'}}>
+          <p className="product-subdesc" style={{marginTop: '20px'}}>
             苏州12个"企业订单班"的总名额为319人，平均每班只成20多人
           </p>
-          <p className="pain-point-subdesc" style={{marginTop: '20px'}}>
+          <p className="product-subdesc" style={{marginTop: '20px'}}>
             具体名额需要学生小程序查看每校的<span className="highlight-box">名额分配</span>
           </p>
-          <p className="pain-point-description">
+          <p className="product-description">
             特殊情况处理：
           </p>
-          <p className="pain-point-subdesc" style={{marginTop: '20px'}}>
+          <p className="product-subdesc" style={{marginTop: '20px'}}>
           若名额用完，可连线销售/客服看能否从<span className="highlight-box">其它城市</span>调剂名额，无法调剂则只能表示歉意
           </p>
-          <p className="pain-point-description">
+          <p className="product-description">
             重要提示：
           </p>
-          <p className="pain-point-subdesc" style={{marginTop: '20px'}}>
+          <p className="product-subdesc" style={{marginTop: '20px'}}>
           大一新生在没有名额的情况下，不能锁定<span className="highlight-box">下一年度的名额</span>
           </p>
         </div>
-        <div className="pain-point-right slide-in-right" ref={rightRef}>
-          <div className="pain-point-images">
-            <div className="pain-point-image" onClick={() => handleImageClick(getAssetPath('/images/报名_3.png'))}>
+        <div className="product-right slide-in-right" ref={rightRef}>
+          <div className="product-images">
+            <div className="product-image" onClick={() => handleImageClick(getAssetPath('/images/报名_3.png'))}>
               <img src={getAssetPath("/images/报名_3.png")} alt="报名系统" />
             </div>
           </div>

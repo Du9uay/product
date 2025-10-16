@@ -9,14 +9,21 @@
   padding: 80px 40px;
 }
 
+/* 创建一个容器来包裹两个侧边栏 */
 .pathway-content {
   max-width: 1400px;
   width: 100%;
   display: grid;
-  grid-template-columns: 1fr 2fr 1fr;
-  gap: 60px;
-  align-items: center;
+  grid-template-areas:
+    "center center"
+    "left right";
+  grid-template-columns: 1fr 1fr;
+  gap: 8px; /* 从15px进一步缩小到8px */
+  align-items: start;
   position: relative;
+  /* 对内容应用缩放，不影响section容器和背景 */
+  transform: scale(var(--scale-factor));
+  transform-origin: top center;
 }
 
 /* 左右两侧样式 */
@@ -25,34 +32,38 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 60px 40px;
-  border-radius: 20px;
+  padding: 20px 15px; /* 再次缩小padding */
+  border-radius: 15px; /* 缩小圆角 */
   background: rgba(255, 255, 255, 0.03);
   border: 2px solid rgba(139, 92, 246, 0.3);
   transition: all 0.4s ease;
-  min-height: 400px;
+  min-height: 150px; /* 再次减小最小高度 */
+  width: 100%;
   position: relative;
+  transform: scale(0.7); /* 整体缩小到70% */
 }
 
 .pathway-side:hover {
-  transform: translateY(-10px);
+  transform: scale(0.7) translateY(-10px); /* 保持70%缩放并向上移动 */
   border-color: rgba(139, 92, 246, 0.6);
   box-shadow: 0 20px 60px rgba(139, 92, 246, 0.2);
 }
 
 .pathway-left {
+  grid-area: left; /* 指定grid区域 */
   border-left: 4px solid var(--primary);
 }
 
 .pathway-right {
+  grid-area: right; /* 指定grid区域 */
   border-right: 4px solid var(--secondary);
 }
 
 .pathway-label {
-  font-size: 3rem;
+  font-size: 2.5rem; /* 从3rem缩小到2.5rem */
   font-weight: 800;
   color: var(--text);
-  margin-bottom: 30px;
+  margin-bottom: 20px; /* 从30px缩小到20px */
   background: linear-gradient(135deg, var(--primary), var(--secondary));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -60,17 +71,19 @@
 }
 
 .pathway-icon {
-  font-size: 5rem;
+  font-size: 4rem; /* 从5rem缩小到4rem */
   opacity: 0.8;
 }
 
 /* 中间内容区域 */
 .pathway-center {
+  grid-area: center; /* 指定grid区域 */
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 40px;
+  padding: 20px; /* 减小padding */
+  width: 100%;
   position: relative;
   z-index: 2;
 }
@@ -200,12 +213,12 @@
 /* 响应式设计 */
 @media (max-width: 1024px) {
   .pathway-content {
-    grid-template-columns: 1fr;
-    gap: 40px;
+    gap: 20px; /* 进一步缩小间距 */
   }
 
   .pathway-side {
     min-height: 200px;
+    padding: 30px 20px;
   }
 
   .pathway-title {
@@ -219,7 +232,16 @@
 
 @media (max-width: 768px) {
   .pathway-section {
-    padding: 60px 20px;
+    padding: 40px 20px; /* 减小padding */
+  }
+
+  .pathway-content {
+    /* 移动端保持左右布局 */
+    grid-template-areas:
+      "center center"
+      "left right";
+    grid-template-columns: 1fr 1fr;
+    gap: 8px; /* 保持小间距 */
   }
 
   .pathway-title {
@@ -245,5 +267,14 @@
 
   .choice-text {
     font-size: 1.2rem;
+  }
+
+  .pathway-side {
+    min-height: 180px;
+    padding: 25px 15px;
+  }
+
+  .pathway-center {
+    padding: 15px;
   }
 }

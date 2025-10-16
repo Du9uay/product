@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { getAssetPath } from '../../utils/getAssetPath';
 import ImagePreview from '../ImagePreview';
 import './ProductSection.css';
 
@@ -140,11 +139,11 @@ const ProductSection = ({ type, onImageClick }) => {
         </div>
         <div className="product-right slide-in-right" ref={rightRef}>
           <div className="product-images">
-            <div className="product-image" onClick={() => handleImageClick(getAssetPath('/images/国内企业.png'))}>
-              <img src={getAssetPath("/images/国内企业.png")} alt="国内企业" />
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYa3DI.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYa3DI.png" alt="国内企业" />
             </div>
-            <div className="product-image" onClick={() => handleImageClick(getAssetPath('/images/海外企业.png'))}>
-              <img src={getAssetPath("/images/海外企业.png")} alt="海外企业" />
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYc6nf.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYc6nf.png" alt="海外企业" />
             </div>
           </div>
         </div>
@@ -173,8 +172,8 @@ const ProductSection = ({ type, onImageClick }) => {
             我们合作的企业前50％岗位只从我们的学员里挑选
           </p>
           {/* 插入岗位资源图片 */}
-          <div className="product-inline-image" style={{marginTop: '8px', marginBottom: '8px'}} onClick={() => handleImageClick(getAssetPath('/images/岗位资源.png'))}>
-            <img src={getAssetPath("/images/岗位资源.png")} alt="岗位资源" style={{width: '100%', maxWidth: '500px', cursor: 'pointer', borderRadius: '8px'}} />
+          <div className="product-inline-image" style={{marginTop: '8px', marginBottom: '8px'}} onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6cXD1OEH.png")}>
+            <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6cXD1OEH.png" alt="岗位资源" style={{width: '100%', maxWidth: '500px', cursor: 'pointer', borderRadius: '8px'}} />
           </div>
           <p className="product-subdesc">
             每个"企业订单班"都是<span className="highlight-box">对标40多个岗位</span>，有很多都是学生所学专业去不了的岗位，右侧为我们“订单班”往届学员的就业榜单
@@ -182,17 +181,17 @@ const ProductSection = ({ type, onImageClick }) => {
         </div>
         <div className="product-right slide-in-right" ref={rightRef}>
           <div className="product-images">
-            <div className="product-image" onClick={() => handleImageClick(getAssetPath('/images/智能开发-就业榜.png'))}>
-              <img src={getAssetPath("/images/智能开发-就业榜.png")} alt="智能开发就业榜" />
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6d6mDDLJ.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6d6mDDLJ.png" alt="智能开发就业榜" />
             </div>
-            <div className="product-image" onClick={() => handleImageClick(getAssetPath('/images/视觉设计-就业榜.png'))}>
-              <img src={getAssetPath("/images/视觉设计-就业榜.png")} alt="视觉设计就业榜" />
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYN02q.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYN02q.png" alt="视觉设计就业榜" />
             </div>
-            <div className="product-image" onClick={() => handleImageClick(getAssetPath('/images/智能制造-就业榜.png'))}>
-              <img src={getAssetPath("/images/智能制造-就业榜.png")} alt="智能制造就业榜" />
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAY0Qlw.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAY0Qlw.png" alt="智能制造就业榜" />
             </div>
-            <div className="product-image" onClick={() => handleImageClick(getAssetPath('/images/财经商贸-就业榜.png'))}>
-              <img src={getAssetPath("/images/财经商贸-就业榜.png")} alt="财经商贸就业榜" />
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6DYSrthZ.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6DYSrthZ.png" alt="财经商贸就业榜" />
             </div>
           </div>
         </div>
@@ -215,43 +214,37 @@ const ProductSection = ({ type, onImageClick }) => {
         <div className="product-left slide-in-left" ref={leftRef}>
           <h3 className="product-title">大专生学什么知识才能找到好工作？</h3>
 
-          {/* 企业生产流程部分 - 左右并排 */}
-          <div style={{marginBottom: '15px', display: 'flex', alignItems: 'center', gap: '20px'}}>
-            {/* 左侧文字 */}
-            <div style={{flex: '1'}}>
-              <h4 className="highlight-box" style={{fontSize: '1.8rem', fontWeight: '700', marginBottom: '15px', display: 'inline-block'}}>
-                企业生产流程
-              </h4>
-              <p className="product-subdesc">
-                学生是不知道现在企业是怎样运作的、部门之间怎么协作的；
-              </p>
-              <p className="product-subdesc" style={{marginTop: '10px'}}>
-              进入“订单班”即跨入职场，专家团队会给学员教授企业中各个部门的工作流程，只给学员教授未来工作中需要的实际技能。
-              </p>
-            </div>
-            {/* 右侧图片 */}
-            <div className="product-inline-image" style={{flex: '0 0 45%'}} onClick={() => handleImageClick(getAssetPath('/images/企业生产流程.png'))}>
-              <img src={getAssetPath("/images/企业生产流程.png")} alt="企业生产流程" style={{width: '100%', cursor: 'pointer', borderRadius: '8px'}} />
+          {/* 企业生产流程部分 - 文字+图片 */}
+          <div style={{marginBottom: '30px'}}>
+            <h4 className="highlight-box" style={{fontSize: '1.8rem', fontWeight: '700', marginBottom: '15px', display: 'inline-block'}}>
+              企业生产流程
+            </h4>
+            <p className="product-subdesc">
+              学生是不知道现在企业是怎样运作的、部门之间怎么协作的；
+            </p>
+            <p className="product-subdesc" style={{marginTop: '10px'}}>
+            进入"订单班"即跨入职场，专家团队会给学员教授企业中各个部门的工作流程，只给学员教授未来工作中需要的实际技能。
+            </p>
+            {/* 第一张图片紧跟第一段文字 */}
+            <div className="product-inline-image" style={{marginTop: '15px'}} onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYaRQv.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYaRQv.png" alt="企业生产流程" style={{width: '100%', maxWidth: '800px', cursor: 'pointer', borderRadius: '8px'}} />
             </div>
           </div>
 
-          {/* 重点技术及概念部分 - 左右并排 */}
-          <div style={{clear: 'both', marginTop: '15px', display: 'flex', alignItems: 'center', gap: '20px'}}>
-            {/* 左侧图片 */}
-            <div className="product-inline-image" style={{flex: '0 0 45%'}} onClick={() => handleImageClick(getAssetPath('/images/重点技术及概念.png'))}>
-              <img src={getAssetPath("/images/重点技术及概念.png")} alt="重点技术及概念" style={{width: '100%', cursor: 'pointer', borderRadius: '8px'}} />
-            </div>
-            {/* 右侧文字 */}
-            <div style={{flex: '1'}}>
-              <h4 className="highlight-box" style={{fontSize: '1.8rem', fontWeight: '700', marginBottom: '15px', display: 'inline-block'}}>
-                重点技术及概念
-              </h4>
-              <p className="product-subdesc">
-              学生在校内学不到企业正在应用的最新技术
-              </p>
-              <p className="product-subdesc" style={{marginTop: '10px'}}>
-              我们的企业技术专家会为学员详细讲解每个工作环节中的实际应用的重点知识，只教实际工作中用得到的，不教用不到的
-              </p>
+          {/* 重点技术及概念部分 - 文字+图片 */}
+          <div style={{marginTop: '30px'}}>
+            <h4 className="highlight-box" style={{fontSize: '1.8rem', fontWeight: '700', marginBottom: '15px', display: 'inline-block'}}>
+              重点技术及概念
+            </h4>
+            <p className="product-subdesc">
+            学生在校内学不到企业正在应用的最新技术
+            </p>
+            <p className="product-subdesc" style={{marginTop: '10px'}}>
+            我们的企业技术专家会为学员详细讲解每个工作环节中的实际应用的重点知识，只教实际工作中用得到的，不教用不到的
+            </p>
+            {/* 第二张图片紧跟第二段文字 */}
+            <div className="product-inline-image" style={{marginTop: '15px'}} onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYkCuU.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYkCuU.png" alt="重点技术及概念" style={{width: '100%', maxWidth: '800px', cursor: 'pointer', borderRadius: '8px'}} />
             </div>
           </div>
         </div>
@@ -282,8 +275,8 @@ const ProductSection = ({ type, onImageClick }) => {
         </div>
         <div className="product-right slide-in-right" ref={rightRef}>
           <div className="product-images">
-            <div className="product-image" onClick={() => handleImageClick(getAssetPath('/images/agent_2.png'))}>
-              <img src={getAssetPath("/images/agent_2.png")} alt="AI工作流程" />
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZKLeJZADRO.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZKLeJZADRO.png" alt="AI工作流程" />
             </div>
           </div>
         </div>
@@ -314,8 +307,8 @@ const ProductSection = ({ type, onImageClick }) => {
         </div>
         <div className="product-right slide-in-right" ref={rightRef}>
           <div className="product-images">
-            <div className="product-image" onClick={() => handleImageClick(getAssetPath('/images/工作门道.png'))}>
-              <img src={getAssetPath("/images/工作门道.png")} alt="工作门道" />
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAY3yUv.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAY3yUv.png" alt="工作门道" />
             </div>
           </div>
         </div>
@@ -350,17 +343,17 @@ const ProductSection = ({ type, onImageClick }) => {
         </div>
         <div className="product-right slide-in-right" ref={rightRef}>
           <div className="product-images">
-            <div className="product-image" onClick={() => handleImageClick(getAssetPath('/images/学生有能力写好简历吗？1.png'))}>
-              <img src={getAssetPath("/images/学生有能力写好简历吗？1.png")} alt="定制简历" />
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYmMpv.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYmMpv.png" alt="定制简历" />
             </div>
-            <div className="product-image" onClick={() => handleImageClick(getAssetPath('/images/学生有能力写好简历吗？2.png'))}>
-              <img src={getAssetPath("/images/学生有能力写好简历吗？2.png")} alt="项目案例" />
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYdtSK.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYdtSK.png" alt="项目案例" />
             </div>
-            <div className="product-image" onClick={() => handleImageClick(getAssetPath('/images/学生有能力写好简历吗？3.png'))}>
-              <img src={getAssetPath("/images/学生有能力写好简历吗？3.png")} alt="作品集模板" />
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYmRUn.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYmRUn.png" alt="作品集模板" />
             </div>
-            <div className="product-image" onClick={() => handleImageClick(getAssetPath('/images/学生有能力写好简历吗？4.png'))}>
-              <img src={getAssetPath("/images/学生有能力写好简历吗？4.png")} alt="作品展示" />
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYeBF0.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYeBF0.png" alt="作品展示" />
             </div>
           </div>
         </div>
@@ -395,11 +388,11 @@ const ProductSection = ({ type, onImageClick }) => {
         </div>
         <div className="product-right slide-in-right" ref={rightRef}>
           <div className="product-images">
-            <div className="product-image" onClick={() => handleImageClick(getAssetPath('/images/学校里会教怎么用AI做项目吗？1.png'))}>
-              <img src={getAssetPath("/images/学校里会教怎么用AI做项目吗？1.png")} alt="AI工具应用" />
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYu71H.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYu71H.png" alt="AI工具应用" />
             </div>
-            <div className="product-image" onClick={() => handleImageClick(getAssetPath('/images/学校里会教怎么用AI做项目吗？2.png'))}>
-              <img src={getAssetPath("/images/学校里会教怎么用AI做项目吗？2.png")} alt="Agent智能体" />
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYaS3b.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYaS3b.png" alt="Agent智能体" />
             </div>
           </div>
         </div>
@@ -431,11 +424,11 @@ const ProductSection = ({ type, onImageClick }) => {
         </div>
         <div className="product-right slide-in-right" ref={rightRef}>
           <div className="product-images">
-            <div className="product-image" onClick={() => handleImageClick(getAssetPath('/images/学生能有清晰的就业规划吗？.png'))}>
-              <img src={getAssetPath("/images/学生能有清晰的就业规划吗？.png")} alt="就业规划" />
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYMFbt.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYMFbt.png" alt="就业规划" />
             </div>
-            <div className="product-image" onClick={() => handleImageClick(getAssetPath('/images/学生能有清晰的就业规划吗？2.png'))}>
-              <img src={getAssetPath("/images/学生能有清晰的就业规划吗？2.png")} alt="求职策略" />
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYPXUa.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYPXUa.png" alt="求职策略" />
             </div>
           </div>
         </div>
@@ -470,8 +463,8 @@ const ProductSection = ({ type, onImageClick }) => {
         </div>
         <div className="product-right slide-in-right" ref={rightRef}>
           <div className="product-images">
-            <div className="product-image" onClick={() => handleImageClick(getAssetPath('/images/现在的大多数学生都不知道如何参加面试.png'))}>
-              <img src={getAssetPath("/images/现在的大多数学生都不知道如何参加面试.png")} alt="面试演练" />
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYZ49S.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYZ49S.png" alt="面试演练" />
             </div>
           </div>
         </div>
@@ -500,8 +493,8 @@ const ProductSection = ({ type, onImageClick }) => {
         </div>
         <div className="product-right slide-in-right" ref={rightRef}>
           <div className="product-images">
-            <div className="product-image" onClick={() => handleImageClick(getAssetPath('/images/跟着\u201c老板\u201d提前进入社会.png'))}>
-              <img src={getAssetPath("/images/跟着老板提前进入社会.png")} alt="企业高管交流会" />
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAY5s5v.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAY5s5v.png" alt="企业高管交流会" />
             </div>
           </div>
         </div>
@@ -536,14 +529,14 @@ const ProductSection = ({ type, onImageClick }) => {
         </div>
         <div className="product-right slide-in-right" ref={rightRef}>
           <div className="product-images">
-            <div className="product-image" onClick={() => handleImageClick(getAssetPath('/images/专属大专生的优质岗位资源，竞争性不激烈1.png'))}>
-              <img src={getAssetPath("/images/专属大专生的优质岗位资源，竞争性不激烈1.png")} alt="优质岗位资源1" />
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYcaA8.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYcaA8.png" alt="优质岗位资源1" />
             </div>
-            <div className="product-image" onClick={() => handleImageClick(getAssetPath('/images/专属大专生的优质岗位资源，竞争性不激烈2.png'))}>
-              <img src={getAssetPath("/images/专属大专生的优质岗位资源，竞争性不激烈2.png")} alt="优质岗位资源2" />
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYlJ9i.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYlJ9i.png" alt="优质岗位资源2" />
             </div>
-            <div className="product-image" onClick={() => handleImageClick(getAssetPath('/images/专属大专生的优质岗位资源，竞争性不激烈3.png'))}>
-              <img src={getAssetPath("/images/专属大专生的优质岗位资源，竞争性不激烈3.png")} alt="优质岗位资源3" />
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAY8MOH.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAY8MOH.png" alt="优质岗位资源3" />
             </div>
           </div>
         </div>
@@ -578,8 +571,8 @@ const ProductSection = ({ type, onImageClick }) => {
         </div>
         <div className="product-right slide-in-right" ref={rightRef}>
           <div className="product-images">
-            <div className="product-image" onClick={() => handleImageClick(getAssetPath('/images/现在很多学生出现问题都不知道问谁.png'))}>
-              <img src={getAssetPath("/images/现在很多学生出现问题都不知道问谁.png")} alt="专家支持中心" />
+            <div className="product-image" onClick={() => handleImageClick("https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYKcHc.png")}>
+              <img src="https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZH6FAYKcHc.png" alt="专家支持中心" />
             </div>
           </div>
         </div>

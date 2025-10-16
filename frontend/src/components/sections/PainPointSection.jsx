@@ -1,5 +1,4 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { getAssetPath } from '../../utils/getAssetPath';
 import { gsap } from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import ImagePreview from '../ImagePreview';
@@ -7,6 +6,17 @@ import './PainPointSection.css';
 
 // 注册ScrollTrigger插件
 gsap.registerPlugin(ScrollTrigger);
+
+// 图片URL映射表
+const imageUrlMap = {
+  'p_2.png': 'https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZHbOjrzTxE.png',
+  'p_3.png': 'https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZHbOjrNSWN.png',
+  '吉祥三宝.PNG': 'https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZHbOjr1nCq.PNG',
+  '铁人三项.PNG': 'https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZHbOjrChTT.PNG',
+  '新时代的三宝.PNG': 'https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZHbOjrIctv.PNG',
+  '校招.JPEG': 'https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZHbOjrgOw1.JPEG',
+  '专升本到底怎么样？.png': 'https://ddcz-1315997005.cos.ap-nanjing.myqcloud.com/static/img/product-introduce/recuZHbOjroDJL.png'
+};
 
 function PainPointSection({ id, number, title, mainText, description, solution, emoji, emojiText, images, onImageClick }) {
   const leftRef = useRef(null);
@@ -214,11 +224,11 @@ function PainPointSection({ id, number, title, mainText, description, solution, 
                 onClick={(e) => {
                   // 对于三图布局，直接点击即可；对于拖拽布局，需要检查是否在拖拽中
                   if (useThreeGrid || !e.target.closest('.pain-point-images').classList.contains('grabbing')) {
-                    handleImageClick(getAssetPath(`/images/${img}`));
+                    handleImageClick(imageUrlMap[img] || img);
                   }
                 }}
               >
-                <img src={getAssetPath(`/images/${img}`)} alt={`${title} ${index + 1}`} />
+                <img src={imageUrlMap[img] || img} alt={`${title} ${index + 1}`} />
               </div>
             ))}
           </div>

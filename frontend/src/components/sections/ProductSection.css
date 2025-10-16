@@ -5,25 +5,39 @@
 
 .product-content {
   display: flex;
+  flex-direction: column; /* 改为上下排列 */
   align-items: center;
-  gap: 35px;
+  gap: 15px; /* 缩小间距从30px到15px */
   max-width: 1400px;
   margin: 0 auto;
-  padding: 25px 40px;
+  padding: 60px 40px; /* 减小padding */
   position: relative;
-  min-height: 65vh;
+  min-height: 100vh;
+  /* 对内容应用缩放，不影响section容器和背景 */
+  transform: scale(var(--scale-factor));
+  transform-origin: top center;
 }
 
 .product-left {
-  flex: 0 0 40%;
+  flex: none; /* 改为不限制宽度 */
+  width: 100%; /* 占满容器宽度 */
   position: relative;
   z-index: 2;
-  padding-right: 40px;
+  padding-right: 0; /* 移除右边距 */
+  text-align: left; /* 文字左对齐 */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 子元素居中 */
+}
+
+.product-left > * {
+  width: 100%;
+  max-width: 1000px; /* 限制最大宽度 */
 }
 
 .product-number {
   display: inline-flex;
-  width: 60px;
+  width: 60px !important; /* 强制固定宽度，不受父元素影响 */
   height: 60px;
   background: linear-gradient(135deg, var(--primary), var(--secondary));
   border-radius: 50%;
@@ -33,27 +47,29 @@
   font-weight: bold;
   margin-bottom: 20px;
   color: white;
+  flex-shrink: 0; /* 防止被压缩 */
 }
 
 .product-title {
   font-size: 3rem;
   font-weight: 800;
-  margin-bottom: 10px;
+  margin-bottom: 30px;
   line-height: 1.2;
   color: var(--text);
   white-space: nowrap; /* 防止标题换行 */
+  text-align: center; /* 大标题居中 */
 }
 
 .product-description {
   font-size: 1.5rem;
-  line-height: 1.5;
+  line-height: 1.8;
   color: var(--text);
-  margin-bottom: 8px;
+  margin-bottom: 20px;
 }
 
 .product-subdesc {
   font-size: 1.2rem;
-  line-height: 1.5;
+  line-height: 1.8;
   color: var(--text-muted);
 }
 
@@ -67,7 +83,8 @@
 }
 
 .product-right {
-  flex: 1;
+  flex: none; /* 改为不限制宽度 */
+  width: 100%; /* 占满容器宽度 */
   position: relative;
   display: flex;
   align-items: center;
@@ -77,7 +94,7 @@
 /* 图片网格容器 */
 .product-images {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  grid-template-columns: 1fr; /* 改为单列上下排列 */
   gap: 20px;
   width: 100%;
   max-width: 800px;
@@ -90,7 +107,8 @@
   cursor: pointer;
   position: relative;
   width: 100%;
-  height: 250px; /* 固定高度 */
+  height: auto; /* 改为自动高度 */
+  min-height: 200px; /* 设置最小高度 */
   display: flex;
   align-items: center;
   justify-content: center;
@@ -100,9 +118,8 @@
 .product-content-vertical {
   flex-direction: column;
   align-items: center;
-  gap: 10px; /* 文本和图片之间的间距 */
-  padding: 25px 40px;
-  min-height: auto; /* 不设置最小高度 */
+  gap: 10px; /* 缩小间距从20px到10px */
+  padding: 60px 40px;
 }
 
 .product-content-vertical .product-left {
@@ -110,7 +127,15 @@
   width: 100%;
   max-width: 1000px;
   padding-right: 0;
-  text-align: left;
+  text-align: left; /* 保持左对齐 */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* 子元素居中 */
+}
+
+.product-content-vertical .product-left > * {
+  width: 100%;
+  max-width: 1000px;
 }
 
 .product-content-vertical .product-right {
@@ -121,11 +146,12 @@
 #product-enterprise .product-images {
   max-width: 100%;
   gap: 30px; /* 增加图片间距 */
-  grid-template-columns: repeat(2, 1fr); /* 两列并排 */
+  grid-template-columns: 1fr; /* 改为单列上下排列 */
 }
 
 #product-enterprise .product-image {
-  height: 350px; /* 增加图片高度从250px到350px */
+  height: auto; /* 改为自动高度 */
+  min-height: 250px; /* 设置最小高度 */
 }
 
 #product-enterprise .product-image img {
@@ -140,7 +166,7 @@
 
 #product-ai .product-image {
   height: auto; /* 自动高度，不限制 */
-  min-height: 500px; /* 最小高度 */
+  min-height: 300px; /* 降低最小高度 */
   max-width: 700px; /* 从600px增加到700px */
   margin: 0 auto; /* 居中 */
   overflow: visible; /* 允许内容显示 */
@@ -162,7 +188,7 @@
 
 #product-career .product-image {
   height: auto;
-  min-height: 450px;
+  min-height: 300px; /* 降低最小高度从450px到300px */
   max-width: 800px;
   margin: 0 auto;
   overflow: visible;
@@ -176,15 +202,16 @@
   object-fit: contain;
 }
 
-/* AI能力板块 - 图片并排显示 */
+/* AI能力板块 - 改为上下排列 */
 #product-aiPower .product-images {
   max-width: 100%;
-  grid-template-columns: repeat(2, 1fr); /* 两列并排 */
+  grid-template-columns: 1fr; /* 改为单列上下排列 */
   gap: 30px;
 }
 
 #product-aiPower .product-image {
-  height: 350px;
+  height: auto; /* 改为自动高度 */
+  min-height: 250px; /* 设置最小高度 */
   overflow: visible;
 }
 
@@ -196,15 +223,16 @@
   object-fit: contain;
 }
 
-/* 就业规划板块 - 完整显示图片 */
+/* 就业规划板块 - 改为上下排列 */
 #product-careerPlan .product-images {
   max-width: 100%;
   gap: 30px;
+  grid-template-columns: 1fr; /* 改为单列上下排列 */
 }
 
 #product-careerPlan .product-image {
   height: auto; /* 自动高度 */
-  min-height: 350px; /* 最小高度 */
+  min-height: 250px; /* 降低最小高度从350px到250px */
   overflow: visible; /* 允许完整显示 */
 }
 
@@ -260,15 +288,16 @@
   object-fit: contain;
 }
 
-/* 求职渠道板块 - 三张图片横向排列 */
+/* 求职渠道板块 - 改为上下排列 */
 #product-jobChannel .product-images {
   max-width: 100%;
-  grid-template-columns: repeat(3, 1fr); /* 三列并排 */
+  grid-template-columns: 1fr; /* 改为单列上下排列 */
   gap: 20px;
 }
 
 #product-jobChannel .product-image {
-  height: 300px;
+  height: auto; /* 改为自动高度 */
+  min-height: 200px; /* 设置最小高度 */
   overflow: visible;
 }
 
@@ -364,6 +393,27 @@
   opacity: 0.6;
 }
 
+/* 大专生学什么知识板块 - 改为上下排列 */
+#product-teaching .product-images {
+  max-width: 100%;
+  grid-template-columns: 1fr; /* 改为单列上下排列 */
+  gap: 30px;
+}
+
+#product-teaching .product-image {
+  height: auto; /* 改为自动高度 */
+  min-height: 250px; /* 设置最小高度 */
+  overflow: visible;
+}
+
+#product-teaching .product-image img {
+  transform: none;
+  width: 100%;
+  height: auto;
+  max-width: 100%;
+  object-fit: contain;
+}
+
 /* 动画效果 */
 .slide-in-left {
   opacity: 0;
@@ -391,24 +441,16 @@
   }
 }
 
-/* 响应式设计 - 已禁用，移动端也显示PC端布局 */
-/* 注释掉响应式布局，保持所有设备使用相同的PC端布局 */
-/*
+/* 响应式设计 */
 @media (max-width: 968px) {
   .product-content {
-    flex-direction: column;
-    gap: 40px;
-  }
-
-  .product-left {
-    flex: none;
-    text-align: center;
-    padding-right: 0;
+    gap: 10px; /* 进一步缩小间距 */
+    padding: 40px 20px; /* 减小padding */
   }
 
   .product-title {
     font-size: 2.5rem;
-    white-space: normal;
+    white-space: normal; /* 移动端允许换行 */
   }
 
   .product-number {
@@ -422,7 +464,13 @@
 
 @media (max-width: 768px) {
   .product-content {
-    padding: 40px 20px;
+    padding: 30px 20px; /* 减小padding */
+    gap: 8px; /* 移动端进一步缩小间距 */
+  }
+
+  .product-content-vertical {
+    gap: 5px; /* 移动端企业资源等板块的间距缩小 */
+    padding: 30px 20px;
   }
 
   .product-title {
@@ -432,5 +480,9 @@
   .product-description {
     font-size: 1.2rem;
   }
+
+  /* 移动端统一降低所有图片容器的最小高度 */
+  .product-image {
+    min-height: 150px !important; /* 统一降低到150px */
+  }
 }
-*/

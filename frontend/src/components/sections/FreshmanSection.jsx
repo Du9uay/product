@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { getAssetPath } from '../../utils/getAssetPath';
+import './ProductSection.css';
 
 const FreshmanSection = ({ id, type, onImageClick }) => {
   const leftRef = useRef(null);
@@ -89,25 +90,25 @@ const FreshmanSection = ({ id, type, onImageClick }) => {
 
   if (type === 'degree') {
     return (
-      <div id={id} className="pain-point-content">
-        <div className="pain-point-left slide-in-left" ref={leftRef}>
-          <h3 className="pain-point-title">转本文凭也找不到好工作</h3>
-          <p className="pain-point-description">
+      <div id={id} className="product-content">
+        <div className="product-left slide-in-left" ref={leftRef}>
+          <h3 className="product-title">转本文凭也找不到好工作</h3>
+          <p className="product-description">
             <span className="highlight-box">专升本的学历没有任何含金量</span>
           </p>
-          <p className="pain-point-subdesc">
+          <p className="product-subdesc">
             社会上承认的具有含金量的学历是985/211的本科学历
           </p>
-          <p className="pain-point-subdesc" style={{marginTop: '20px'}}>
+          <p className="product-subdesc" style={{marginTop: '20px'}}>
             大多数考上的本科都是民办本科，而且本科毕业证上会注明（专科起点/专转本/二年制）等字样
           </p>
-          <p className="pain-point-subdesc" style={{marginTop: '20px'}}>
+          <p className="product-subdesc" style={{marginTop: '20px'}}>
             虽说转本后可以考公考编，但是<span className="highlight-box">考公考编的难度</span>比你高考考个一本都要难，录取率在1-2％左右
           </p>
         </div>
-        <div className="pain-point-right slide-in-right" ref={rightRef}>
-          <div className="pain-point-images">
-            <div className="pain-point-image" onClick={() => handleImageClick(getAssetPath('/images/三维柱状图.png'))}>
+        <div className="product-right slide-in-right" ref={rightRef}>
+          <div className="product-images">
+            <div className="product-image" onClick={() => handleImageClick(getAssetPath('/images/三维柱状图.png'))}>
               <img src={getAssetPath("/images/三维柱状图.png")} alt="专升本对比图" />
             </div>
           </div>

@@ -20,6 +20,9 @@
     --dark-light: #1A1A1A;
     --text: #FFFFFF;
     --text-muted: #9CA3AF;
+
+    /* 全局缩放系数 - 调整这个值可以统一缩放所有元素 */
+    --scale-factor: 0.85; /* 缩小到85% */
 }
 
 /* ============================================
@@ -29,6 +32,8 @@ html {
     /* Lenis需要html和body都没有高度限制 */
     height: auto;
     overflow: visible;
+    /* 全局字体大小缩放 - 默认16px * 0.85 = 13.6px */
+    font-size: calc(16px * var(--scale-factor));
 }
 
 body {
@@ -44,8 +49,6 @@ body {
     /* 移除所有方向的内边距，避免移动端缝隙 */
     padding: 0;
     margin: 0;
-    /* 设置最小宽度，确保移动端也显示完整PC端布局 */
-    min-width: 1440px;
 }
 
 /* ============================================
@@ -57,12 +60,12 @@ body {
 }
 
 .section {
-    min-height: 65vh;
+    min-height: 100vh;
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding: 20px 20px;
+    padding: 60px 20px;
 }
 
 /* ============================================
@@ -164,6 +167,9 @@ body {
     margin: 0 auto;
     position: relative;
     z-index: 2;
+    /* 对内容应用缩放，不影响section容器和背景 */
+    transform: scale(var(--scale-factor));
+    transform-origin: top center;
 }
 
 .hero-title {
@@ -173,7 +179,7 @@ body {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     letter-spacing: -2px;
     animation: gradient-shift 5s ease infinite;
     background-size: 200% 200%;
@@ -187,17 +193,17 @@ body {
 .hero-subtitle {
     font-size: clamp(1.5rem, 4vw, 2.5rem);
     color: var(--text);
-    margin-bottom: 12px;
+    margin-bottom: 30px;
     font-weight: 300;
     opacity: 0.9;
 }
 
 .hero-tags {
     display: flex;
-    gap: 12px;
+    gap: 20px;
     justify-content: center;
     flex-wrap: wrap;
-    margin-top: 15px;
+    margin-top: 40px;
 }
 
 .tag {
@@ -226,11 +232,14 @@ body {
     max-width: 1400px;
     margin: 0 auto;
     width: 100%;
+    /* 对内容应用缩放，不影响section容器和背景 */
+    transform: scale(var(--scale-factor));
+    transform-origin: top center;
 }
 
 .section-title {
     font-size: clamp(2.5rem, 5vw, 4rem);
-    margin-bottom: 15px;
+    margin-bottom: 50px;
     text-align: center;
     position: relative;
     display: inline-block;
@@ -370,24 +379,29 @@ body {
 }
 
 .confusion-title-content {
-    text-align: center;
+    text-align: left; /* 改为左对齐 */
     max-width: 900px;
     margin: 0 auto;
+    /* 对内容应用缩放 */
+    transform: scale(var(--scale-factor));
+    transform-origin: top center;
 }
 
 .confusion-title-content h2 {
     font-size: clamp(3rem, 6vw, 5rem);
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     background: linear-gradient(135deg, #EF4444, #F59E0B);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    text-align: center; /* 大标题保持居中 */
 }
 
 .confusion-title-content p {
     font-size: 1.5rem;
     color: var(--text-muted);
     line-height: 1.8;
+    text-align: left; /* 段落文字左对齐 */
 }
 
 /* 痛点展示页 - 左右布局 */
@@ -398,7 +412,7 @@ body {
 .pain-point-content {
     display: flex;
     align-items: center;
-    gap: 35px;
+    gap: 80px;
     max-width: 1400px;
     margin: 0 auto;
     padding: 0 40px;
@@ -418,21 +432,21 @@ body {
     justify-content: center;
     font-size: 1.8rem;
     font-weight: bold;
-    margin-bottom: 8px;
+    margin-bottom: 20px;
 }
 
 .pain-point-title {
     font-size: 3rem;
     font-weight: 800;
-    margin-bottom: 10px;
+    margin-bottom: 30px;
     line-height: 1.2;
 }
 
 .pain-point-description {
     font-size: 1.5rem;
-    line-height: 1.5;
+    line-height: 1.8;
     color: var(--text);
-    margin-bottom: 8px;
+    margin-bottom: 20px;
 }
 
 .pain-point-subdesc {
@@ -484,10 +498,13 @@ body {
 }
 
 .product-title-content {
-    text-align: center;
+    text-align: left; /* 改为左对齐 */
     max-width: 900px;
     margin: 0 auto;
     padding: 0 20px;
+    /* 对内容应用缩放 */
+    transform: scale(var(--scale-factor));
+    transform-origin: top center;
 }
 
 .product-title-content h2 {
@@ -498,6 +515,7 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-weight: 700;
+    text-align: center; /* 大标题保持居中 */
 }
 
 .product-title-content p {
@@ -506,6 +524,7 @@ body {
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.5;
+    text-align: left; /* 段落文字左对齐 */
 }
 
 .freshman-title-section {
@@ -515,10 +534,13 @@ body {
 }
 
 .freshman-title-content {
-    text-align: center;
+    text-align: left; /* 改为左对齐 */
     max-width: 900px;
     margin: 0 auto;
     padding: 0 20px;
+    /* 对内容应用缩放 */
+    transform: scale(var(--scale-factor));
+    transform-origin: top center;
 }
 
 .freshman-title-content h2 {
@@ -529,6 +551,7 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-weight: 700;
+    text-align: center; /* 大标题保持居中 */
 }
 
 .freshman-title-content p {
@@ -537,6 +560,7 @@ body {
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.5;
+    text-align: left; /* 段落文字左对齐 */
 }
 
 .sophomore-title-section {
@@ -546,10 +570,13 @@ body {
 }
 
 .sophomore-title-content {
-    text-align: center;
+    text-align: left; /* 改为左对齐 */
     max-width: 900px;
     margin: 0 auto;
     padding: 0 20px;
+    /* 对内容应用缩放 */
+    transform: scale(var(--scale-factor));
+    transform-origin: top center;
 }
 
 .sophomore-title-content h2 {
@@ -560,6 +587,7 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-weight: 700;
+    text-align: center; /* 大标题保持居中 */
 }
 
 .sophomore-title-content p {
@@ -568,6 +596,7 @@ body {
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.5;
+    text-align: left; /* 段落文字左对齐 */
 }
 
 .enrollment-title-section {
@@ -577,10 +606,13 @@ body {
 }
 
 .enrollment-title-content {
-    text-align: center;
+    text-align: left; /* 改为左对齐 */
     max-width: 900px;
     margin: 0 auto;
     padding: 0 20px;
+    /* 对内容应用缩放 */
+    transform: scale(var(--scale-factor));
+    transform-origin: top center;
 }
 
 .enrollment-title-content h2 {
@@ -591,6 +623,7 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-weight: 700;
+    text-align: center; /* 大标题保持居中 */
 }
 
 .enrollment-title-content p {
@@ -599,6 +632,7 @@ body {
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.5;
+    text-align: left; /* 段落文字左对齐 */
 }
 
 .city-title-section {
@@ -644,10 +678,13 @@ body {
 }
 
 .city-title-content {
-    text-align: center;
+    text-align: left; /* 改为左对齐 */
     max-width: 900px;
     margin: 0 auto;
     padding: 0 20px;
+    /* 对内容应用缩放 */
+    transform: scale(var(--scale-factor));
+    transform-origin: top center;
 }
 
 .city-title-content h2 {
@@ -658,6 +695,7 @@ body {
     -webkit-text-fill-color: transparent;
     background-clip: text;
     font-weight: 700;
+    text-align: center; /* 大标题保持居中 */
 }
 
 .city-title-content p {
@@ -666,6 +704,7 @@ body {
     max-width: 600px;
     margin: 0 auto;
     line-height: 1.5;
+    text-align: left; /* 段落文字左对齐 */
 }
 
 /* ============================================
@@ -725,6 +764,9 @@ body {
     text-align: center;
     max-width: 900px;
     margin: 0 auto;
+    /* 对内容应用缩放 */
+    transform: scale(var(--scale-factor));
+    transform-origin: top center;
 }
 
 .cta-title {
@@ -804,10 +846,8 @@ body {
 
 
 /* ============================================
-   响应式设计 - 已禁用，移动端也显示PC端布局
+   响应式设计
    ============================================ */
-/* 注释掉响应式布局，保持所有设备使用相同的PC端布局 */
-/*
 @media (max-width: 968px) {
     .pain-point-content {
         flex-direction: column;
@@ -830,6 +870,19 @@ body {
 }
 
 @media (max-width: 768px) {
+    /* 移动端确保无缝隙 */
+    html, body {
+        padding: 0 !important;
+        margin: 0 !important;
+        width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
+    #root {
+        width: 100% !important;
+        overflow-x: hidden !important;
+    }
+
     .cards-grid {
         grid-template-columns: 1fr;
         gap: 20px;
@@ -842,8 +895,8 @@ body {
     .section {
         padding: 40px 15px;
     }
+
 }
-*/
 
 /* ============================================
    动画效果
